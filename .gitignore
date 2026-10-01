@@ -1,0 +1,11 @@
+.DS_Store
+.venv/
+__pycache__/
+*.pyc
+*.zip
+*.vpp.bak_*
+data/openfoodfacts/
+tools/vp_plugin/classes/
+report/*.aux
+report/*.log
+report/*.out

@@ -1,0 +1,660 @@
+{
+  "evaluation_protocol": {
+    "catalog_size": 12,
+    "top_k": 5,
+    "relevance": "Manually labeled product-ID sets; broad queries may have multiple relevant products.",
+    "success": "The first result is relevant, or an expected no-match query returns no products.",
+    "limitations": "Text and simulated voice only on a small synthetic catalog; real-photo image search is evaluated separately on Open Food Facts."
+  },
+  "product_search": {
+    "overall": {
+      "queries": 19,
+      "positive_queries": 16,
+      "top1_hits": 16,
+      "top1_accuracy": 1.0,
+      "negative_queries": 3,
+      "correct_no_match": 3,
+      "all_case_successes": 19,
+      "all_case_success_rate": 1.0
+    },
+    "by_mode": {
+      "text": {
+        "queries": 16,
+        "positive_queries": 13,
+        "top1_hits": 13,
+        "top1_accuracy": 1.0,
+        "negative_queries": 3,
+        "correct_no_match": 3,
+        "all_case_successes": 16,
+        "all_case_success_rate": 1.0
+      },
+      "voice": {
+        "queries": 3,
+        "positive_queries": 3,
+        "top1_hits": 3,
+        "top1_accuracy": 1.0,
+        "negative_queries": 0,
+        "correct_no_match": 0,
+        "all_case_successes": 3,
+        "all_case_success_rate": 1.0
+      }
+    },
+    "cases": [
+      {
+        "mode": "text",
+        "input": "Nike shoes under 100 dollars",
+        "normalized_query": {
+          "tokens": [
+            "nike",
+            "shoes"
+          ],
+          "category": "shoes",
+          "color": null,
+          "brand": "nike",
+          "max_price": 100.0
+        },
+        "relevant_ids": [
+          1
+        ],
+        "ranked_ids": [
+          1
+        ],
+        "ranked_results": [
+          {
+            "id": 1,
+            "name": "Nike Air Zoom Black Running Shoes",
+            "score": 0.9946
+          }
+        ],
+        "success": true
+      },
+      {
+        "mode": "text",
+        "input": "black leather bag",
+        "normalized_query": {
+          "tokens": [
+            "black",
+            "leather",
+            "bag"
+          ],
+          "category": "bag",
+          "color": "black",
+          "brand": null,
+          "max_price": null
+        },
+        "relevant_ids": [
+          5
+        ],
+        "ranked_ids": [
+          5
+        ],
+        "ranked_results": [
+          {
+            "id": 5,
+            "name": "Classic Black Leather Bag",
+            "score": 0.9796
+          }
+        ],
+        "success": true
+      },
+      {
+        "mode": "text",
+        "input": "green water bottle",
+        "normalized_query": {
+          "tokens": [
+            "green",
+            "water",
+            "bottle"
+          ],
+          "category": "bottle",
+          "color": "green",
+          "brand": null,
+          "max_price": null
+        },
+        "relevant_ids": [
+          11
+        ],
+        "ranked_ids": [
+          11
+        ],
+        "ranked_results": [
+          {
+            "id": 11,
+            "name": "Green Water Bottle",
+            "score": 0.9736
+          }
+        ],
+        "success": true
+      },
+      {
+        "mode": "text",
+        "input": "silver wireless headphones",
+        "normalized_query": {
+          "tokens": [
+            "silver",
+            "wireless",
+            "headphones"
+          ],
+          "category": "headphones",
+          "color": "silver",
+          "brand": null,
+          "max_price": null
+        },
+        "relevant_ids": [
+          9
+        ],
+        "ranked_ids": [
+          9
+        ],
+        "ranked_results": [
+          {
+            "id": 9,
+            "name": "Silver Wireless Headphones",
+            "score": 0.9916
+          }
+        ],
+        "success": true
+      },
+      {
+        "mode": "text",
+        "input": "blue sports shirt",
+        "normalized_query": {
+          "tokens": [
+            "blue",
+            "sports",
+            "shirt"
+          ],
+          "category": "shirt",
+          "color": "blue",
+          "brand": null,
+          "max_price": null
+        },
+        "relevant_ids": [
+          7
+        ],
+        "ranked_ids": [
+          7
+        ],
+        "ranked_results": [
+          {
+            "id": 7,
+            "name": "Blue Cotton T Shirt",
+            "score": 0.682
+          }
+        ],
+        "success": true
+      },
+      {
+        "mode": "text",
+        "input": "sneakers",
+        "normalized_query": {
+          "tokens": [
+            "shoes"
+          ],
+          "category": "shoes",
+          "color": null,
+          "brand": null,
+          "max_price": null
+        },
+        "relevant_ids": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ranked_ids": [
+          1,
+          2,
+          4,
+          3
+        ],
+        "ranked_results": [
+          {
+            "id": 1,
+            "name": "Nike Air Zoom Black Running Shoes",
+            "score": 0.9946
+          },
+          {
+            "id": 2,
+            "name": "Adidas White Running Shoes",
+            "score": 0.9892
+          },
+          {
+            "id": 4,
+            "name": "Nike Red Running Shoes",
+            "score": 0.9844
+          },
+          {
+            "id": 3,
+            "name": "Puma Blue Sports Shoes",
+            "score": 0.9838
+          }
+        ],
+        "success": true
+      },
+      {
+        "mode": "text",
+        "input": "red headphones",
+        "normalized_query": {
+          "tokens": [
+            "red",
+            "headphones"
+          ],
+          "category": "headphones",
+          "color": "red",
+          "brand": null,
+          "max_price": null
+        },
+        "relevant_ids": [
+          10
+        ],
+        "ranked_ids": [
+          10
+        ],
+        "ranked_results": [
+          {
+            "id": 10,
+            "name": "Red Wireless Headphones",
+            "score": 0.9802
+          }
+        ],
+        "success": true
+      },
+      {
+        "mode": "text",
+        "input": "brown backpack under 70",
+        "normalized_query": {
+          "tokens": [
+            "brown",
+            "backpack"
+          ],
+          "category": "bag",
+          "color": "brown",
+          "brand": null,
+          "max_price": 70.0
+        },
+        "relevant_ids": [
+          6
+        ],
+        "ranked_ids": [
+          6
+        ],
+        "ranked_results": [
+          {
+            "id": 6,
+            "name": "Brown Travel Backpack",
+            "score": 0.9748
+          }
+        ],
+        "success": true
+      },
+      {
+        "mode": "text",
+        "input": "puma blue sneakers",
+        "normalized_query": {
+          "tokens": [
+            "puma",
+            "blue",
+            "shoes"
+          ],
+          "category": "shoes",
+          "color": "blue",
+          "brand": "puma",
+          "max_price": null
+        },
+        "relevant_ids": [
+          3
+        ],
+        "ranked_ids": [
+          3
+        ],
+        "ranked_results": [
+          {
+            "id": 3,
+            "name": "Puma Blue Sports Shoes",
+            "score": 0.9838
+          }
+        ],
+        "success": true
+      },
+      {
+        "mode": "text",
+        "input": "black products",
+        "normalized_query": {
+          "tokens": [
+            "black"
+          ],
+          "category": null,
+          "color": "black",
+          "brand": null,
+          "max_price": null
+        },
+        "relevant_ids": [
+          1,
+          5,
+          8,
+          12
+        ],
+        "ranked_ids": [
+          1,
+          12,
+          5,
+          8
+        ],
+        "ranked_results": [
+          {
+            "id": 1,
+            "name": "Nike Air Zoom Black Running Shoes",
+            "score": 0.9946
+          },
+          {
+            "id": 12,
+            "name": "Black Sports Watch",
+            "score": 0.9874
+          },
+          {
+            "id": 5,
+            "name": "Classic Black Leather Bag",
+            "score": 0.9796
+          },
+          {
+            "id": 8,
+            "name": "Black Training T Shirt",
+            "score": 0.9784
+          }
+        ],
+        "success": true
+      },
+      {
+        "mode": "text",
+        "input": "red running shoes",
+        "normalized_query": {
+          "tokens": [
+            "red",
+            "running",
+            "shoes"
+          ],
+          "category": "shoes",
+          "color": "red",
+          "brand": null,
+          "max_price": null
+        },
+        "relevant_ids": [
+          4
+        ],
+        "ranked_ids": [
+          4
+        ],
+        "ranked_results": [
+          {
+            "id": 4,
+            "name": "Nike Red Running Shoes",
+            "score": 0.9844
+          }
+        ],
+        "success": true
+      },
+      {
+        "mode": "text",
+        "input": "t-shirts",
+        "normalized_query": {
+          "tokens": [
+            "shirt"
+          ],
+          "category": "shirt",
+          "color": null,
+          "brand": null,
+          "max_price": null
+        },
+        "relevant_ids": [
+          7,
+          8
+        ],
+        "ranked_ids": [
+          7,
+          8
+        ],
+        "ranked_results": [
+          {
+            "id": 7,
+            "name": "Blue Cotton T Shirt",
+            "score": 0.982
+          },
+          {
+            "id": 8,
+            "name": "Black Training T Shirt",
+            "score": 0.9784
+          }
+        ],
+        "success": true
+      },
+      {
+        "mode": "text",
+        "input": "running shoes under 100",
+        "normalized_query": {
+          "tokens": [
+            "running",
+            "shoes"
+          ],
+          "category": "shoes",
+          "color": null,
+          "brand": null,
+          "max_price": 100.0
+        },
+        "relevant_ids": [
+          1,
+          2
+        ],
+        "ranked_ids": [
+          1,
+          2,
+          3
+        ],
+        "ranked_results": [
+          {
+            "id": 1,
+            "name": "Nike Air Zoom Black Running Shoes",
+            "score": 0.9946
+          },
+          {
+            "id": 2,
+            "name": "Adidas White Running Shoes",
+            "score": 0.9892
+          },
+          {
+            "id": 3,
+            "name": "Puma Blue Sports Shoes",
+            "score": 0.5338
+          }
+        ],
+        "success": true
+      },
+      {
+        "mode": "text",
+        "input": "Nike shoes under 90",
+        "normalized_query": {
+          "tokens": [
+            "nike",
+            "shoes"
+          ],
+          "category": "shoes",
+          "color": null,
+          "brand": "nike",
+          "max_price": 90.0
+        },
+        "relevant_ids": [],
+        "ranked_ids": [],
+        "ranked_results": [],
+        "success": true
+      },
+      {
+        "mode": "text",
+        "input": "red water bottle",
+        "normalized_query": {
+          "tokens": [
+            "red",
+            "water",
+            "bottle"
+          ],
+          "category": "bottle",
+          "color": "red",
+          "brand": null,
+          "max_price": null
+        },
+        "relevant_ids": [],
+        "ranked_ids": [],
+        "ranked_results": [],
+        "success": true
+      },
+      {
+        "mode": "text",
+        "input": "purple backpack",
+        "normalized_query": {
+          "tokens": [
+            "purple",
+            "backpack"
+          ],
+          "category": "bag",
+          "color": "purple",
+          "brand": null,
+          "max_price": null
+        },
+        "relevant_ids": [],
+        "ranked_ids": [],
+        "ranked_results": [],
+        "success": true
+      },
+      {
+        "mode": "voice",
+        "input": "find black running shoes",
+        "normalized_query": {
+          "tokens": [
+            "black",
+            "running",
+            "shoes"
+          ],
+          "category": "shoes",
+          "color": "black",
+          "brand": null,
+          "max_price": null
+        },
+        "relevant_ids": [
+          1
+        ],
+        "ranked_ids": [
+          1
+        ],
+        "ranked_results": [
+          {
+            "id": 1,
+            "name": "Nike Air Zoom Black Running Shoes",
+            "score": 0.9946
+          }
+        ],
+        "success": true
+      },
+      {
+        "mode": "voice",
+        "input": "show me blue cotton shirt",
+        "normalized_query": {
+          "tokens": [
+            "blue",
+            "cotton",
+            "shirt"
+          ],
+          "category": "shirt",
+          "color": "blue",
+          "brand": null,
+          "max_price": null
+        },
+        "relevant_ids": [
+          7
+        ],
+        "ranked_ids": [
+          7
+        ],
+        "ranked_results": [
+          {
+            "id": 7,
+            "name": "Blue Cotton T Shirt",
+            "score": 0.982
+          }
+        ],
+        "success": true
+      },
+      {
+        "mode": "voice",
+        "input": "find sneakers under 90",
+        "normalized_query": {
+          "tokens": [
+            "shoes"
+          ],
+          "category": "shoes",
+          "color": null,
+          "brand": null,
+          "max_price": 90.0
+        },
+        "relevant_ids": [
+          2,
+          3
+        ],
+        "ranked_ids": [
+          2,
+          3
+        ],
+        "ranked_results": [
+          {
+            "id": 2,
+            "name": "Adidas White Running Shoes",
+            "score": 0.9892
+          },
+          {
+            "id": 3,
+            "name": "Puma Blue Sports Shoes",
+            "score": 0.9838
+          }
+        ],
+        "success": true
+      }
+    ]
+  },
+  "order_lookup": {
+    "queries": 4,
+    "successful": 4,
+    "accuracy": 1.0,
+    "cases": [
+      {
+        "customer_id": "C001",
+        "input": "find my order 20261001",
+        "relevant_id": "20261001",
+        "actual_id": "20261001",
+        "status": "Processing",
+        "success": true
+      },
+      {
+        "customer_id": "C001",
+        "input": "where is my latest order?",
+        "relevant_id": "20261001",
+        "actual_id": "20261001",
+        "status": "Processing",
+        "success": true
+      },
+      {
+        "customer_id": "C002",
+        "input": "find my order 20261001",
+        "relevant_id": null,
+        "actual_id": null,
+        "status": null,
+        "success": true
+      },
+      {
+        "customer_id": "C001",
+        "input": "find my order O999",
+        "relevant_id": null,
+        "actual_id": null,
+        "status": null,
+        "success": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+=== E-Commerce Multimodal Search Demo ===
+
+TEXT: Nike shoes under 100 dollars
+type=text, input='find Nike shoes under 100 dollars', tokens=['nike', 'shoes'], category=shoes, color=None, brand=nike, max_price=100.0
+Retrieval -> ranking -> top results:
+  1. Nike Air Zoom Black Running Shoes | score=0.9946 (text=1.000, image=0.000, business=0.946)
+
+VOICE: black running shoes (transcript simulation)
+type=voice, input='find black running shoes', tokens=['black', 'running', 'shoes'], category=shoes, color=black, brand=None, max_price=None
+Retrieval -> ranking -> top results:
+  1. Nike Air Zoom Black Running Shoes | score=0.9946 (text=1.000, image=0.000, business=0.946)
+
+ORDER: customer C001, 'find my order 20261001'
+{'order_id': '20261001', 'customer_id': 'C001', 'date': '2026-10-01', 'status': 'Processing', 'total': 120, 'items': [{'product_id': 9, 'quantity': 1}]}
+
+LATEST ORDER: customer C001, 'where is my latest order?'
+{'order_id': '20261001', 'customer_id': 'C001', 'date': '2026-10-01', 'status': 'Processing', 'total': 120, 'items': [{'product_id': 9, 'quantity': 1}]}
+
+For image and combined search with real Open Food Facts photos, run: python web_demo.py

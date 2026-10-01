@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="ptit.assignment06.multimodal" name="PTIT Assignment 06 UML Builder"
+        description="Creates editable multimodal search diagrams via Visual Paradigm Open API"
+        provider="Local coursework" class="Assignment06Builder">
+  <runtime><library path="classes" relativePath="true"/></runtime>
+</plugin>

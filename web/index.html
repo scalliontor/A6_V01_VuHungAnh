@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assignment 06 — Search Demonstration</title>
+  <link rel="stylesheet" href="/app.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="mark">A6</div>
+      <div class="top-title"><strong>Multimodal product search</strong><span>Assignment 06 · V01 · local demonstration</span></div>
+      <div class="top-note"><span class="live-dot"></span> Python + Apple Vision</div>
+    </header>
+
+    <main>
+      <section class="intro">
+        <div>
+          <p class="eyebrow">OPEN FOOD FACTS / REAL PRODUCT PHOTOS</p>
+          <h1>Try the search prototype.</h1>
+          <p class="lead">Enter a title, speak into your microphone, or use a real product photo. Each mode goes through the same query, retrieval, and ranking services.</p>
+        </div>
+        <div class="dataset-stats" id="datasetStats" aria-label="Dataset size">
+          <div><strong>500</strong><span>catalog products</span></div>
+          <div><strong>100</strong><span>other-view photos</span></div>
+        </div>
+      </section>
+
+      <div class="layout">
+        <section class="panel search-panel">
+          <div class="panel-heading"><span class="step">01</span><div><h2>Choose an input</h2><p>Voice can use your microphone or a typed transcript.</p></div></div>
+          <div class="tabs" role="tablist" aria-label="Search mode">
+            <button class="tab" data-mode="text" type="button">Text</button>
+            <button class="tab" data-mode="voice" type="button">Voice</button>
+            <button class="tab active" data-mode="image" type="button">Image</button>
+            <button class="tab" data-mode="multimodal" type="button">Text + image</button>
+          </div>
+          <form id="searchForm">
+            <div class="field" id="textField" hidden>
+              <label for="queryText">Product query</label>
+              <input id="queryText" name="query" type="text" autocomplete="off" value="Tomato Mushroom Pasta Sauce">
+              <p class="hint" id="textHint">Searches product title, brand, and category text.</p>
+              <div class="voice-control" id="voiceControl" hidden>
+                <button class="mic-button" id="micButton" type="button" aria-pressed="false"><span aria-hidden="true">🎙</span> Start microphone</button>
+                <span class="voice-status" id="voiceStatus" role="status">Speak a product name in English. Allow microphone access if prompted.</span>
+              </div>
+            </div>
+            <div id="imageField">
+              <div class="field">
+                <label for="sampleSelect">Try a held-out dataset photo</label>
+                <select id="sampleSelect"></select>
+                <p class="hint">This photo is a different view from the one indexed in the catalog.</p>
+              </div>
+              <div class="preview-line">
+                <img id="queryPreview" src="" alt="Selected Open Food Facts query photo">
+                <div><strong>Query image</strong><span id="previewName">Loading sample photo…</span><small>Actual photo from Open Food Facts</small></div>
+              </div>
+              <div class="upload-line"><label for="uploadImage">Or upload your own photo</label><input id="uploadImage" type="file" accept="image/jpeg,image/png,image/webp"><span>JPEG, PNG, or WebP · max 5 MB</span></div>
+            </div>
+            <button class="search-button" id="searchButton" type="submit">Run search <span aria-hidden="true">→</span></button>
+          </form>
+          <div class="method-note"><strong>Processing path</strong><span>Input → common query → candidate retrieval → ranking → top five products</span></div>
+        </section>
+
+        <section class="panel results-panel">
+          <div class="panel-heading"><span class="step">02</span><div><h2>Ranked results</h2><p id="resultSummary">Choose an input to see the search result.</p></div></div>
+          <div id="status" class="status" role="status"></div>
+          <div id="queryInfo" class="query-info"></div>
+          <div id="sampleLabel"></div>
+          <div id="results" class="results"></div>
+        </section>
+      </div>
+
+      <section class="labels-panel panel">
+        <div class="panel-heading"><span class="step">03</span><div><h2>What labels are available?</h2><p>These fields come from the selected Open Food Facts records. Missing fields are shown as missing, not invented.</p></div></div>
+        <div class="label-grid" id="labelGrid"></div>
+        <div class="category-box"><strong>Broad category labels in this sample</strong><div id="categories" class="category-list"></div></div>
+        <p class="source-note">Images and product data: Open Food Facts contributors. The image query's known answer is the same product barcode; category and brand coverage vary by record. Source and licenses are documented in <code>data/openfoodfacts/DATASET.md</code>.</p>
+      </section>
+    </main>
+    <footer>Vu Hung Anh · Information System Analysis and Design · Assignment 06</footer>
+  </div>
+</body>
+</html>

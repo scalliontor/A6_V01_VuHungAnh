@@ -1,0 +1,266 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[a4paper,margin=19mm,headheight=15pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\usepackage{microtype}
+\usepackage{graphicx,booktabs,tabularx,array,pdflscape,float,enumitem}
+\usepackage{xcolor,hyperref,fancyhdr,amsmath,amssymb}
+\hypersetup{colorlinks=false,pdfborder={0 0 0},pdfauthor={Vu Hung Anh},pdftitle={Multimodal Search System for E-Commerce -- Assignment 06}}
+\definecolor{navy}{HTML}{17365D}
+\definecolor{pale}{HTML}{E7F2FB}
+\pagestyle{fancy}\fancyhf{}
+\lhead{Information System Analysis and Design}
+\rhead{Assignment 06 -- V01}
+\cfoot{\thepage}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\renewcommand{\arraystretch}{1.12}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\nextsection}[1]{\clearpage\section{#1}}
+\setlist[itemize]{leftmargin=1.4em,itemsep=2pt,topsep=3pt}
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{13mm}
+{\Large POSTS AND TELECOMMUNICATIONS INSTITUTE OF TECHNOLOGY\par}
+\vspace{4mm}
+{\large Information System Analysis and Design\par}
+\vspace{23mm}
+{\Huge\bfseries MULTIMODAL SEARCH SYSTEM\par}
+\vspace{4mm}
+{\LARGE\bfseries FOR E-COMMERCE\par}
+\vspace{8mm}
+{\Large Assignment 06 -- UML Design and Python Prototype\par}
+\vspace{20mm}
+\begin{tabular}{rl}
+Student: & Vu Hung Anh \\
+Student ID: & B23DCDT022 \\
+Submission date: & 1 October 2026 \\
+Submission version: & V01
+\end{tabular}
+\vspace{18mm}
+\begin{minipage}{0.87\linewidth}
+\textbf{Abstract.} This report designs and demonstrates a small e-commerce search prototype for text, voice, and product images. The browser accepts live microphone speech or an editable transcript. The report includes the required UML diagrams, Python implementation, and tests on a teaching catalog and a separate real-photo sample.
+\end{minipage}
+\vfill
+{\small Submitted with an editable Visual Paradigm project, source code, sample data, and evaluation results.\par}
+\end{titlepage}
+
+\section{Problem and requirements}
+Online customers search for products in different ways: they may type a description, speak a query, or provide a product image. The system converts each input to a common query format, retrieves candidate products, ranks them, and displays the results. Customers can also look up their own orders.
+
+The prototype connects requirements analysis, UML design, a three-layer architecture, and executable Python code. It has a short console example and a local browser interface. The browser can recognize microphone speech and pass its transcript to Python; typed transcripts remain available. Image search uses Apple's Vision framework through a local Swift process on macOS.
+
+\begin{center}
+\fcolorbox{navy}{pale}{\parbox{0.88\linewidth}{\centering Text, voice, or image $\longrightarrow$ common query $\longrightarrow$ candidate retrieval $\longrightarrow$ ranking $\longrightarrow$ results}}
+\end{center}
+
+\textbf{Primary actor:} Customer. A customer ID is supplied for order lookup; the repository checks ownership before returning an order.
+
+\begin{table}[H]\small
+\caption{Functional requirements and implementation evidence}
+\begin{tabularx}{\linewidth}{@{}p{12mm}Y Y@{}}\toprule
+ID & Requirement & Evidence \\ \midrule
+FR01 & Search products using text keywords or a short sentence. & Text normalization, filters, and ranked results. \\
+FR02 & Search by voice input. & Browser speech recognition creates a transcript; SpeechService sends it to text retrieval. \\
+FR03 & Search by product image. & ImageService validates the photo; Apple Vision encodes it for ranking. \\
+FR04 & Use one query format and separate retrieval from ranking. & QueryService, SearchService, and RankingService. \\
+FR05 & View a product and search or view a customer-owned order. & Product lookup and customer-scoped OrderService. \\
+FR06 & Demonstrate the input, processing, and result for each required mode. & Browser and console output, plus saved evaluation cases. \\
+\bottomrule\end{tabularx}
+\end{table}
+
+\begin{table}[H]\small
+\caption{Non-functional requirements}
+\begin{tabularx}{\linewidth}{@{}p{12mm}Y@{}}\toprule
+ID & Requirement and response \\ \midrule
+NFR01 & Maintainability: the presentation calls services; repositories handle data access. \\
+NFR02 & Reproducibility: sample data, setup steps, and evaluation outputs are included. \\
+NFR03 & Explainability: ranked results show the component scores used by the prototype. \\
+NFR04 & Robustness and privacy: invalid empty inputs are rejected; order lookup checks customer ownership. \\
+\bottomrule\end{tabularx}
+\end{table}
+
+The system returns up to five ranked products with scores. A query with no eligible product returns no matches. An unknown order or an order belonging to another customer is not returned.
+
+\nextsection{Use-case model}
+\begin{figure}[H]\centering
+\includegraphics[width=0.88\linewidth]{../diagrams/01_use_case.png}
+\caption{Use-case diagram created in Visual Paradigm.}
+\end{figure}
+
+The diagram has one Customer actor and all seven use cases required by the assignment. Search by Keyword, Search by Voice, and Search by Image specialize Search Product. Search Order, View Product, and View Order are separate customer goals. The actor is outside the system boundary; each use case is inside it.
+
+\begin{table}[H]\small
+\caption{Main use-case flows}
+\begin{tabularx}{\linewidth}{@{}p{34mm}Y@{}}\toprule
+Use case & Main flow and result \\ \midrule
+Search Product & Customer submits text, a transcript, or an image. The system builds a query, retrieves and ranks products, then displays the top results. \\
+Search Order & Customer supplies an order ID or asks for the latest order. The system checks ownership and returns the status, or reports no match. \\
+View Product & Customer selects a product ID. The system returns its record or reports that it is unavailable. \\
+View Order & Customer selects an order found under the same customer ID and sees its details. \\
+\bottomrule\end{tabularx}
+\end{table}
+
+\clearpage
+\begin{landscape}
+\section{Three-layer architecture}
+\thispagestyle{empty}
+\begin{figure}[H]\centering
+\includegraphics[width=0.96\linewidth]{../diagrams/02_three_layer_architecture.png}
+\caption{Three-layer class diagram with native Visual Paradigm classes and UML dependencies.}
+\end{figure}
+
+\small
+\textbf{Presentation} collects input and displays results. \textbf{Application / Intelligence} prepares queries, performs search and ranking, and handles orders. \textbf{Data} provides repositories, JSON records, product images, and the Vision image index. Dashed dependency arrows point from the class that uses a service to the class it uses. The main flow is SearchUI $\rightarrow$ application services $\rightarrow$ data services. Each class uses Visual Paradigm's default name, attributes, and operations compartments.
+\end{landscape}
+
+\clearpage
+\begin{landscape}
+\section{Voice-search sequence}
+\thispagestyle{empty}
+\begin{figure}[H]\centering
+\includegraphics[width=0.70\linewidth]{../diagrams/03_sequence_voice.png}
+\caption{Voice-search sequence diagram. Boundary, control, and data-access roles are identified in the lifeline heads.}
+\end{figure}
+\small
+\textbf{Main flow:}
+\begin{enumerate}[leftmargin=1.5em,itemsep=1pt,topsep=2pt]
+\item Customer provides voice input; browser speech recognition produces a transcript for SearchUI. The console version supplies that transcript directly.
+\item SpeechService passes the text to QueryService, which creates a common query.
+\item SearchService retrieves candidates from ProductRepository, ranks them, and returns results for SearchUI to display.
+\end{enumerate}
+\end{landscape}
+
+\nextsection{Data and implementation}
+The teaching catalog has 12 synthetic products and three sample orders. This is more than the assignment's ten-product minimum. It supports short text, voice-transcript, and order examples; its generated product pictures were removed. The browser's text, voice-transcript, image, and combined search instead use 500 real Open Food Facts products and photos.
+
+\begin{table}[H]\small
+\caption{Data records used by the prototype}
+\begin{tabularx}{\linewidth}{@{}p{29mm}Y Y@{}}\toprule
+Record & Main fields & Storage \\ \midrule
+Product & ID, name, category, color, price, stock, image & \path{data/products.json}; real photos in \path{data/openfoodfacts/images/} \\
+Order & ID, customer ID, date, status, total & \path{data/orders.json} \\
+Order item & Product ID, quantity, unit price & Nested in an order record \\
+Image feature print & Product photo and Vision image features & Indexed in memory by the local Swift process \\
+\bottomrule\end{tabularx}
+\end{table}
+
+\begin{figure}[H]\centering
+\begin{tabular}{@{}p{29mm}cc@{}}
+ & \small Query photo & \small Indexed front photo \\
+\small Pasta sauce & \includegraphics[width=.32\textwidth,height=59mm,keepaspectratio]{../data/openfoodfacts/images/5010251561958_query.jpg} &
+\includegraphics[width=.32\textwidth,height=59mm,keepaspectratio]{../data/openfoodfacts/images/5010251561958_front.jpg} \\[3mm]
+\small Noodles & \includegraphics[width=.32\textwidth,height=59mm,keepaspectratio]{../data/openfoodfacts/images/01758979_query.jpg} &
+\includegraphics[width=.32\textwidth,height=59mm,keepaspectratio]{../data/openfoodfacts/images/01758979_front.jpg}
+\end{tabular}
+\caption{Real Open Food Facts query and gallery photos (CC BY-SA 3.0). The sauce is retrieved first; the noodles front photo is outside the top five.}
+\end{figure}
+
+\clearpage
+\pagestyle{fancy}
+\thispagestyle{fancy}
+\subsection*{Service responsibilities and search logic}
+\begin{table}[H]\small
+\caption{UML classes and Python modules}
+\begin{tabularx}{\linewidth}{@{}p{34mm}Y@{}}\toprule
+Layer / component & Implementation \\ \midrule
+Presentation & SearchUI collects mode-specific input and displays results. \\
+Query handling & QueryService normalizes input into a common query. \\
+Voice and image & SpeechService passes the transcript; ImageService validates the uploaded photo. \\
+Product search & SearchService retrieves candidates; RankingService sorts them. \\
+Order search & OrderService handles order ID and latest-order requests. \\
+Data & Repositories load JSON; VectorIndex stores Vision feature prints for product photos. \\
+\bottomrule\end{tabularx}
+\end{table}
+
+\textbf{Text and voice.} QueryService lowercases text, normalizes a small set of category synonyms, and detects common colors, brands, and price limits. SearchService applies the detected filters before ranking. In the browser, the Web Speech API turns microphone speech into editable text. SearchUI then sends that transcript through SpeechService and the same query path. The console example and saved voice checks use supplied transcripts, so they do not measure recognition accuracy.
+
+\textbf{Image search.} ImageService validates the uploaded file. VectorIndex uses Apple's \href{https://developer.apple.com/documentation/vision/vngenerateimagefeatureprintrequest}{Vision feature-print API} to describe each catalog photo and the query photo. Vision measures their visual distance $d$; a smaller distance means a closer match. The application displays the equivalent similarity $S_i=1/(1+d)$, so a larger displayed score is better. The same Vision index is used by the running Python application and the evaluation script. It requires macOS and Swift.
+
+\textbf{Ranking.} The business score $B$ combines popularity and in-stock status. Text or voice search uses $0.9S_t+0.1B$. Image-only search uses $S_i$, preserving Vision's visual order. When both text and image are supplied, the score is $0.45S_t+0.45S_i+0.1B$. Retrieval selects eligible candidates; RankingService sorts those candidates by score.
+
+\textbf{External data.} The browser and evaluation use 500 real grocery products and 100 separate alternate-view query images from Open Food Facts. Gallery and query photos are kept as distinct files; a query photo is never used in the gallery index. Every product has a barcode and title; 350 have a brand and 204 have a usable broad category. Source selection, attribution, and license details are in \path{data/openfoodfacts/DATASET.md}.
+
+\nextsection{Demonstration}
+\begin{figure}[H]\centering
+\includegraphics[width=0.90\linewidth]{../demo/console_capture.png}
+\caption{Console text and simulated-voice demonstration generated by \code{python main.py}.}
+\end{figure}
+
+The console output shows the input, normalized query, ranked results, and scores for text and a supplied voice transcript. The order demo finds order \code{20261001} for customer \code{C001}; the same request returns no order for customer \code{C002}. In the browser, the Voice tab can capture speech from the microphone, show the recognized text, and run the same voice search.
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.78\linewidth]{../demo/voice_capture.png}
+\caption{Browser Voice tab with microphone control and ranked results from an example transcript.}
+\end{figure}
+
+\begin{table}[H]\small
+\caption{Labels visible in the browser's real-product catalog}
+\begin{tabularx}{\linewidth}{@{}p{36mm}p{30mm}Y@{}}\toprule
+Field & Availability & How it is used \\ \midrule
+Barcode and name & 500/500 products & Product identity and title lookup. \\
+Brand & 350/500 products & Display and keyword matching when present. \\
+Broad category & 204/500 products & Display; 52/100 image queries have a usable category check. \\
+Query's true barcode & 100/100 photos & Correct answer for exact-product image retrieval. \\
+\bottomrule\end{tabularx}
+\end{table}
+
+Shop prices and inventory are absent from Open Food Facts; the real-photo image ranking does not use placeholder business fields. Generated teaching images are excluded from the evaluation.
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.85\linewidth]{../demo/web_capture.png}
+\caption{Local Python web demonstration searching with a real Open Food Facts query photo. The known barcode and ranked products are shown.}
+\end{figure}
+
+\begin{table}[H]\small
+\caption{Required search modes and one extension}
+\begin{tabularx}{\linewidth}{@{}p{25mm}Y Y@{}}\toprule
+Mode & Example input & First result \\ \midrule
+Text & \code{find Nike shoes under 100 dollars} & Nike Air Zoom Black Running Shoes \\
+Voice & \code{find black running shoes} (console transcript) & Nike Air Zoom Black Running Shoes \\
+Image & Alternate photo of Tomato \& Mushroom Pasta Sauce & Tomato \& Mushroom Pasta Sauce \\
+Text + image & \code{Tomato Mushroom Pasta Sauce} and the photo & Tomato \& Mushroom Pasta Sauce \\
+\bottomrule\end{tabularx}
+\end{table}
+
+The browser runs from \code{web\_demo.py} at \code{127.0.0.1:8765}; it accepts a provided dataset photo or an uploaded photo. Its image result is a genuine Apple Vision result on the 500-product gallery. The first result is correct for the shown sauce query, while the full 100-photo evaluation below includes failures.
+
+\nextsection{Evaluation}
+\textbf{What is measured.} Each test asks whether the application's first result is correct. For exact-product image search, the correct answer has the same barcode as the query photo. We also count whether it appears anywhere in the first five results.
+
+\textbf{Source and test setup.} Product records come from the official Open Food Facts \href{https://static.openfoodfacts.org/exports/products.random-modulo-1000.tar.gz}{random-modulo-1000 sample}; photos come from its image store. A fixed selection provides 500 catalog products and 100 separate query photos. The catalog contains a product's front photo, while its different query photo is kept out of the index. Thus, matching requires recognizing the same product across two views. The selection seed, source hash, and image attribution are supplied with the dataset.
+
+\textbf{Method.} The test calls the submitted Python application's SearchUI, SearchService, and Apple Vision index. The category check asks whether the first result has the same broad Open Food Facts category; 48 of the 100 queries lack a usable label and are excluded from that check. For text, the query is the catalog's own product title, which is easier than a customer's free-form request. Voice checks use known transcripts and assess retrieval after transcription; live microphone recognition is demonstrated but not scored.
+
+\begin{table}[H]\small
+\caption{Results from the submitted application}
+\begin{tabularx}{\linewidth}{@{}p{50mm}p{35mm}Y@{}}\toprule
+Check & Correct first result & Interpretation \\ \midrule
+Teaching text and voice queries & 16/16; plus 3/3 no-match checks & Basic query handling works on the small teaching catalog. \\
+Same product, different real photo & 22/100 (22\%); 26/100 in top five & The exact item is often missed across different package views. \\
+Same broad category & 16/52 (31\%) & Only 52 queries have a usable category label. \\
+Exact product title & 83/100 (83\%) & This tests catalog-title lookup, not natural-language shopping. \\
+Order access & 4/4 & Includes rejecting another customer's order. \\
+\bottomrule\end{tabularx}
+\end{table}
+
+\textbf{Examples and interpretation.} The alternate photo of \emph{Tomato \& Mushroom Pasta Sauce} retrieves its matching front photo first. The \emph{Quick cook medium noodles} query shows the back of the package; its matching front photo is outside the top five. Both image pairs are shown earlier in this report. The teaching check covers text and voice only; all image results come from real photos. Per-query results are saved in \path{demo/openfoodfacts_evaluation.json}.
+
+\nextsection{Discussion and conclusion}
+The prototype meets the required tasks: it defines the customer requirements, models all required use cases and the three layers in Visual Paradigm, illustrates voice search, and implements text, voice-transcript, image, and ranked results in Python. The browser adds live microphone transcription. It also demonstrates text-image fusion, price filtering, and order ownership checks.
+
+The main limitation is exact-product image retrieval: the Apple Vision method finds the correct product first for 22 of 100 alternate-view photos. It also requires macOS and Swift. The teaching catalog is small; the real-photo sample is grocery-focused and much smaller than a real store. Text evaluation uses exact product titles. Microphone recognition depends on browser support, permission, and the browser's recognition service; its accuracy is not measured here. The supplied customer ID is not an authentication mechanism.
+
+A practical next step is to test product-specific image representations or package-text recognition on the same held-out photos. The current service boundaries allow that change within the image index without moving search logic into the user interface.
+
+\textbf{Reproducibility.} The GitHub submission contains the report, editable \code{.vpp} project, Python source, browser interface, teaching records, README, thirteen automated tests, and saved evaluation results. The prepared Open Food Facts photos and metadata are provided as a separate ZIP on Google Drive. The README provides a tested \code{gdown} command, checksum, and extraction steps. The UML project can be rebuilt with \path{tools/build_vp.py}; the report uses the supplied Assignment 06 handout as its specification.
+
+\textbf{Submission links.} GitHub source and report: \href{https://github.com/scalliontor/A6_V01_VuHungAnh}{github.com/scalliontor/A6\_V01\_VuHungAnh}. Prepared dataset: \href{https://drive.google.com/drive/folders/1Ta9vMurnYoJzvNcP23Iflulr-EVWIx58?usp=sharing}{drive.google.com/drive/folders/1Ta9vMurnYoJzvNcP23Iflulr-EVWIx58}.
+
+\textbf{Dataset attribution.} Product records are from Open Food Facts contributors. The database is under ODbL 1.0 and the Database Contents License; product images are under CC BY-SA 3.0. Selection and image resizing are documented in \path{data/openfoodfacts/DATASET.md} inside the Drive ZIP. This coursework is not endorsed by Open Food Facts. See the official \href{https://github.com/openfoodfacts/openfoodfacts-ai/blob/develop/data-sets.md}{dataset sample documentation} and \href{https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/tutorials/license-be-on-the-legal-side/}{license guidance}.
+
+\end{document}

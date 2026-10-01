@@ -1,0 +1,3214 @@
+{
+  "protocol": {
+    "dataset": "Open Food Facts random-modulo-1000 product sample",
+    "method": "Submitted SearchUI/SearchService with local Apple Vision feature prints",
+    "gallery_products": 500,
+    "alternate_view_queries": 100,
+    "top_k": 5,
+    "correct_exact_match": "Same barcode as the query photo, using another view in the gallery",
+    "category_label": "Same broadest available Open Food Facts category tag",
+    "text_query": "The catalog's own exact product title",
+    "source_manifest": {
+      "dataset": "Open Food Facts product database sample",
+      "source_archive": "https://static.openfoodfacts.org/exports/products.random-modulo-1000.tar.gz",
+      "archive_sha256": "a306b401aee55273a35dd7119de4ae6aff205257dad306710add997f30ddc057",
+      "prepared_utc": "2026-10-01T07:28:10.184938+00:00",
+      "source_products_with_english_name_and_front_image": 1187,
+      "gallery_products": 500,
+      "alternate_view_queries": 100,
+      "gallery_limit": 500,
+      "query_limit": 100,
+      "selection_seed": "assignment06-v01-openfoodfacts",
+      "image_resolution": "400 px maximum; 200 px used if 400 px variant is absent",
+      "download_errors": [],
+      "data_license": "Open Database License (ODbL) 1.0; Database Contents License 1.0",
+      "image_license": "Creative Commons Attribution-ShareAlike 3.0 (CC BY-SA 3.0)"
+    }
+  },
+  "image_search": {
+    "summary": {
+      "queries": 100,
+      "top1_hits": 22,
+      "top1_rate": 0.22,
+      "top5_hits": 26,
+      "top5_rate": 0.26
+    },
+    "cases": [
+      {
+        "query_id": "off-01758979",
+        "query_image": "images/01758979_query.jpg",
+        "expected_product_id": "01758979",
+        "expected_product_name": "Quick cook medium noodles",
+        "first_product_name": "Diana Toba rustica",
+        "ranked_product_ids": [
+          "2511349003037",
+          "2531346004905",
+          "2517019003284",
+          "3504182960536",
+          "5285004277039"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0041900090951",
+        "query_image": "images/0041900090951_query.jpg",
+        "expected_product_id": "0041900090951",
+        "expected_product_name": "Strawberry Whole Milk",
+        "first_product_name": "Nix healthy snack",
+        "ranked_product_ids": [
+          "5285004277039",
+          "0850013497140",
+          "8907516130653",
+          "2511349003037",
+          "00187251"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5059697771040",
+        "query_image": "images/5059697771040_query.jpg",
+        "expected_product_id": "5059697771040",
+        "expected_product_name": "Smoked Haddock Risotto",
+        "first_product_name": "Na",
+        "ranked_product_ids": [
+          "8907516130653",
+          "5017849001322",
+          "0255396510989",
+          "0226499415341",
+          "5285004277039"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0088468562308",
+        "query_image": "images/0088468562308_query.jpg",
+        "expected_product_id": "0088468562308",
+        "expected_product_name": "Herring fillets in dill-herb sauce",
+        "first_product_name": "Na",
+        "ranked_product_ids": [
+          "8907516130653",
+          "5285004277039",
+          "0850013497140",
+          "8718452528561",
+          "2511349003037"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5010251561958",
+        "query_image": "images/5010251561958_query.jpg",
+        "expected_product_id": "5010251561958",
+        "expected_product_name": "Tomato & Mushroom Pasta Sauce",
+        "first_product_name": "Tomato & Mushroom Pasta Sauce",
+        "ranked_product_ids": [
+          "5010251561958",
+          "3269712401629",
+          "0099071002808",
+          "0031604005993",
+          "0860005912223"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0860012100613",
+        "query_image": "images/0860012100613_query.jpg",
+        "expected_product_id": "0860012100613",
+        "expected_product_name": "Honey Buzz 50",
+        "first_product_name": "Honey Buzz 50",
+        "ranked_product_ids": [
+          "0860012100613",
+          "0810979001027",
+          "5900571104877",
+          "7803468002042",
+          "0834266906949"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-00278140",
+        "query_image": "images/00278140_query.jpg",
+        "expected_product_id": "00278140",
+        "expected_product_name": "Fragrant Tikka Curry Paste",
+        "first_product_name": "Na",
+        "ranked_product_ids": [
+          "8907516130653",
+          "2511349003037",
+          "00187251",
+          "2517019003284",
+          "8718452528561"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-42457008",
+        "query_image": "images/42457008_query.jpg",
+        "expected_product_id": "42457008",
+        "expected_product_name": "DESSERT PROTEICO GUSTO CIOCCOLATO",
+        "first_product_name": "Brown Rice & Quinoa",
+        "ranked_product_ids": [
+          "0017400140380",
+          "3504182960536",
+          "14304505",
+          "2531346004905",
+          "8007660506219"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0043000955697",
+        "query_image": "images/0043000955697_query.jpg",
+        "expected_product_id": "0043000955697",
+        "expected_product_name": "Lemonade",
+        "first_product_name": "Lemonade",
+        "ranked_product_ids": [
+          "0043000955697",
+          "0847589041167",
+          "2540317014966",
+          "7035620055706",
+          "0709993307089"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-7441029520705",
+        "query_image": "images/7441029520705_query.jpg",
+        "expected_product_id": "7441029520705",
+        "expected_product_name": "Pan integral de grano entero Oatnut Avena Nuez",
+        "first_product_name": "Na",
+        "ranked_product_ids": [
+          "8907516130653",
+          "2511349003037",
+          "2531346004905",
+          "0226499415341",
+          "2544574049167"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0856371008509",
+        "query_image": "images/0856371008509_query.jpg",
+        "expected_product_id": "0856371008509",
+        "expected_product_name": "Maple Bourbon Fudge",
+        "first_product_name": "Na",
+        "ranked_product_ids": [
+          "8907516130653",
+          "2511349003037",
+          "0205480205178",
+          "00187251",
+          "8718452528561"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5941866622409",
+        "query_image": "images/5941866622409_query.jpg",
+        "expected_product_id": "5941866622409",
+        "expected_product_name": "PlantZalmon",
+        "first_product_name": "PlantZalmon",
+        "ranked_product_ids": [
+          "5941866622409",
+          "0852704005184",
+          "0254714008313",
+          "0734414000164",
+          "0263550806502"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0208126410592",
+        "query_image": "images/0208126410592_query.jpg",
+        "expected_product_id": "0208126410592",
+        "expected_product_name": "Bone-In loin Assorted Pork Chops",
+        "first_product_name": "Yoghurt griekse stijl aardbei",
+        "ranked_product_ids": [
+          "8718452528561",
+          "5285004277039",
+          "2511349003037",
+          "8907516130653",
+          "0850013497140"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-8412258303017",
+        "query_image": "images/8412258303017_query.jpg",
+        "expected_product_id": "8412258303017",
+        "expected_product_name": "Lentejas cocidas",
+        "first_product_name": "Nix healthy snack",
+        "ranked_product_ids": [
+          "5285004277039",
+          "2531346004905",
+          "2527282020420",
+          "8718452528561",
+          "0259461911534"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-9300633679965",
+        "query_image": "images/9300633679965_query.jpg",
+        "expected_product_id": "9300633679965",
+        "expected_product_name": "Chocolate flavoured milk",
+        "first_product_name": "Chocolate flavoured milk",
+        "ranked_product_ids": [
+          "9300633679965",
+          "0044100102424",
+          "00187251",
+          "77028228",
+          "0098487962478"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0758108808164",
+        "query_image": "images/0758108808164_query.jpg",
+        "expected_product_id": "0758108808164",
+        "expected_product_name": "Hazelnut spread with cocoa",
+        "first_product_name": "Norwegian salmon smoke roasted",
+        "ranked_product_ids": [
+          "0850013497140",
+          "8907516130653",
+          "5285004277039",
+          "2978794000002",
+          "4061459304282"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0242247007859",
+        "query_image": "images/0242247007859_query.jpg",
+        "expected_product_id": "0242247007859",
+        "expected_product_name": "93% Lean Ground Beef",
+        "first_product_name": "Na",
+        "ranked_product_ids": [
+          "8907516130653",
+          "2511349003037",
+          "2517019003284",
+          "0226499415341",
+          "00187251"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5060311550088",
+        "query_image": "images/5060311550088_query.jpg",
+        "expected_product_id": "5060311550088",
+        "expected_product_name": "Glorious White Chocolate and Cramberry Muffin Mix",
+        "first_product_name": "Nix healthy snack",
+        "ranked_product_ids": [
+          "5285004277039",
+          "0850013497140",
+          "2544574049167",
+          "3254568046070",
+          "8907516130653"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0055742578010",
+        "query_image": "images/0055742578010_query.jpg",
+        "expected_product_id": "0055742578010",
+        "expected_product_name": "Popcorn Chicken",
+        "first_product_name": "Popcorn Chicken",
+        "ranked_product_ids": [
+          "0055742578010",
+          "4061459304282",
+          "0646670532627",
+          "0017400140380",
+          "2544574049167"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-7610313424771",
+        "query_image": "images/7610313424771_query.jpg",
+        "expected_product_id": "7610313424771",
+        "expected_product_name": "Herbamare",
+        "first_product_name": "Herbamare",
+        "ranked_product_ids": [
+          "7610313424771",
+          "0041415014329",
+          "0838766005164",
+          "5601009974337",
+          "3269712401629"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0603907000373",
+        "query_image": "images/0603907000373_query.jpg",
+        "expected_product_id": "0603907000373",
+        "expected_product_name": "Whey protein isolate chocolate flavor",
+        "first_product_name": "Nix healthy snack",
+        "ranked_product_ids": [
+          "5285004277039",
+          "8907516130653",
+          "2531346004905",
+          "0212321804995",
+          "2511349003037"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5000157062727",
+        "query_image": "images/5000157062727_query.jpg",
+        "expected_product_id": "5000157062727",
+        "expected_product_name": "Mulligatawny soup 400 g",
+        "first_product_name": "Elite 100% Whey",
+        "ranked_product_ids": [
+          "0705016599226",
+          "5285004277039",
+          "0075880334071",
+          "0075196001094",
+          "0658533123033"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-3367824928338",
+        "query_image": "images/3367824928338_query.jpg",
+        "expected_product_id": "3367824928338",
+        "expected_product_name": "Coppa",
+        "first_product_name": "Tagliatelle al Farro",
+        "ranked_product_ids": [
+          "8033247970289",
+          "3367824928338",
+          "9034487370036",
+          "8412258303017",
+          "2531279010455"
+        ],
+        "top1_success": false,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0011110005083",
+        "query_image": "images/0011110005083_query.jpg",
+        "expected_product_id": "0011110005083",
+        "expected_product_name": "RED WINE VINEGAR",
+        "first_product_name": "Norwegian salmon smoke roasted",
+        "ranked_product_ids": [
+          "0850013497140",
+          "0212321804995",
+          "5285004277039",
+          "5201054015872",
+          "0011110918710"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-9310140017457",
+        "query_image": "images/9310140017457_query.jpg",
+        "expected_product_id": "9310140017457",
+        "expected_product_name": "YUM. instant rice noodles",
+        "first_product_name": "YUM. instant rice noodles",
+        "ranked_product_ids": [
+          "9310140017457",
+          "0838766006789",
+          "0850223008402",
+          "3217450004428",
+          "9555022311050"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0688267548871",
+        "query_image": "images/0688267548871_query.jpg",
+        "expected_product_id": "0688267548871",
+        "expected_product_name": "Organic Spring Mix",
+        "first_product_name": "Agneray Philippe",
+        "ranked_product_ids": [
+          "3254568046070",
+          "5411833101133",
+          "5285004277039",
+          "0253314006477",
+          "0850013497140"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-4750007790355",
+        "query_image": "images/4750007790355_query.jpg",
+        "expected_product_id": "4750007790355",
+        "expected_product_name": "Vaflių ritinėliai su kokosų įdaru",
+        "first_product_name": "slanina afumata",
+        "ranked_product_ids": [
+          "2531346004905",
+          "2511349003037",
+          "5285004277039",
+          "0236084012862",
+          "8907516130653"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0255396510989",
+        "query_image": "images/0255396510989_query.jpg",
+        "expected_product_id": "0255396510989",
+        "expected_product_name": "Cookie Dough Brownie",
+        "first_product_name": "Choc orange rocky road",
+        "ranked_product_ids": [
+          "50129775",
+          "8855273018250",
+          "7610339098291",
+          "5099874143642",
+          "0208126410592"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-8437019491017",
+        "query_image": "images/8437019491017_query.jpg",
+        "expected_product_id": "8437019491017",
+        "expected_product_name": "Double Chocolate Chip",
+        "first_product_name": "Double Chocolate Chip",
+        "ranked_product_ids": [
+          "8437019491017",
+          "8855273030733",
+          "0851784007392",
+          "00265324",
+          "8711327397903"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0011110688729",
+        "query_image": "images/0011110688729_query.jpg",
+        "expected_product_id": "0011110688729",
+        "expected_product_name": "Chicken Flavored Stuffing Mix",
+        "first_product_name": "Nix healthy snack",
+        "ranked_product_ids": [
+          "5285004277039",
+          "0850013497140",
+          "8907516130653",
+          "0253314006477",
+          "0658533123033"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0237855106926",
+        "query_image": "images/0237855106926_query.jpg",
+        "expected_product_id": "0237855106926",
+        "expected_product_name": "Atlantic Salmon Boneless Fillet",
+        "first_product_name": "Kroger natural fresh pork",
+        "ranked_product_ids": [
+          "0253314006477",
+          "3254568046070",
+          "0646670532627",
+          "2544574049167",
+          "8907516130653"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-87167696",
+        "query_image": "images/87167696_query.jpg",
+        "expected_product_id": "87167696",
+        "expected_product_name": "Pilsner",
+        "first_product_name": "Agneray Philippe",
+        "ranked_product_ids": [
+          "3254568046070",
+          "0253314006477",
+          "6291021970890",
+          "5411833101133",
+          "2030509167339"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-20741570",
+        "query_image": "images/20741570_query.jpg",
+        "expected_product_id": "20741570",
+        "expected_product_name": "Butter Organic Microwave Popcorn, Butter",
+        "first_product_name": "Norwegian salmon smoke roasted",
+        "ranked_product_ids": [
+          "0850013497140",
+          "5285004277039",
+          "8907516130653",
+          "2531346004905",
+          "9320000500685"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0852704005184",
+        "query_image": "images/0852704005184_query.jpg",
+        "expected_product_id": "0852704005184",
+        "expected_product_name": "Breakfast Blueberry Biscuits",
+        "first_product_name": "Na",
+        "ranked_product_ids": [
+          "8907516130653",
+          "5285004277039",
+          "0850013497140",
+          "3254568046070",
+          "2531346004905"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-56209524000259",
+        "query_image": "images/56209524000259_query.jpg",
+        "expected_product_id": "56209524000259",
+        "expected_product_name": "shortbread rounds",
+        "first_product_name": "Na",
+        "ranked_product_ids": [
+          "8907516130653",
+          "5285004277039",
+          "2511349003037",
+          "0646670532627",
+          "2531346004905"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-4800016112133",
+        "query_image": "images/4800016112133_query.jpg",
+        "expected_product_id": "4800016112133",
+        "expected_product_name": "Quake overload(mocha butter)",
+        "first_product_name": "Quake overload(mocha butter)",
+        "ranked_product_ids": [
+          "4800016112133",
+          "0031604005993",
+          "0815800022523",
+          "0055742578010",
+          "0011110122872"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5000128824781",
+        "query_image": "images/5000128824781_query.jpg",
+        "expected_product_id": "5000128824781",
+        "expected_product_name": "Moroccan Style Cous Cous",
+        "first_product_name": "Agneray Philippe",
+        "ranked_product_ids": [
+          "3254568046070",
+          "5000128824781",
+          "0253314006477",
+          "5411833101133",
+          "5285004277039"
+        ],
+        "top1_success": false,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0681131017923",
+        "query_image": "images/0681131017923_query.jpg",
+        "expected_product_id": "0681131017923",
+        "expected_product_name": "Creamy Chicken & Wild Rice Soup",
+        "first_product_name": "Agneray Philippe",
+        "ranked_product_ids": [
+          "3254568046070",
+          "8907516130653",
+          "0253314006477",
+          "0212321804995",
+          "0850013497140"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5412514938253",
+        "query_image": "images/5412514938253_query.jpg",
+        "expected_product_id": "5412514938253",
+        "expected_product_name": "Durum Warps",
+        "first_product_name": "Agneray Philippe",
+        "ranked_product_ids": [
+          "3254568046070",
+          "5285004277039",
+          "0253314006477",
+          "8718452528561",
+          "2511349003037"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0850083092214",
+        "query_image": "images/0850083092214_query.jpg",
+        "expected_product_id": "0850083092214",
+        "expected_product_name": "Whey ISO chocolate, peanut butter",
+        "first_product_name": "Whey ISO chocolate, peanut butter",
+        "ranked_product_ids": [
+          "0850083092214",
+          "0031604005993",
+          "5010251561958",
+          "0705016599226",
+          "0197870160214"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5055365625448",
+        "query_image": "images/5055365625448_query.jpg",
+        "expected_product_id": "5055365625448",
+        "expected_product_name": "Orange Tangs",
+        "first_product_name": "Yoghurt griekse stijl aardbei",
+        "ranked_product_ids": [
+          "8718452528561",
+          "5203176017147",
+          "00187251",
+          "0259461911534",
+          "14304505"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-2595000004335",
+        "query_image": "images/2595000004335_query.jpg",
+        "expected_product_id": "2595000004335",
+        "expected_product_name": "Parówki premium z szynki",
+        "first_product_name": "Diana Toba rustica",
+        "ranked_product_ids": [
+          "2511349003037",
+          "0259461911534",
+          "4061459304282",
+          "5900552071563",
+          "2517019003284"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0214063002806",
+        "query_image": "images/0214063002806_query.jpg",
+        "expected_product_id": "0214063002806",
+        "expected_product_name": "Muscle Milk Protein Shake",
+        "first_product_name": "Muscle Milk Protein Shake",
+        "ranked_product_ids": [
+          "0214063002806",
+          "5285004277039",
+          "8718452528561",
+          "5203176017147",
+          "0259461911534"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-00405577",
+        "query_image": "images/00405577_query.jpg",
+        "expected_product_id": "00405577",
+        "expected_product_name": "Gluten Free Victoria Sandwich Cake",
+        "first_product_name": "Agneray Philippe",
+        "ranked_product_ids": [
+          "3254568046070",
+          "5285004277039",
+          "0253314006477",
+          "8907516130653",
+          "2030509167339"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-9350548515025",
+        "query_image": "images/9350548515025_query.jpg",
+        "expected_product_id": "9350548515025",
+        "expected_product_name": "Cooked Tuna & Avocado sushi",
+        "first_product_name": "Agneray Philippe",
+        "ranked_product_ids": [
+          "3254568046070",
+          "0253314006477",
+          "2544574049167",
+          "2030509167339",
+          "8907516130653"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0815800022523",
+        "query_image": "images/0815800022523_query.jpg",
+        "expected_product_id": "0815800022523",
+        "expected_product_name": "Original Recipe Smoked Shorty Sausages",
+        "first_product_name": "Original Recipe Smoked Shorty Sausages",
+        "ranked_product_ids": [
+          "0815800022523",
+          "0603907000373",
+          "7340195410349",
+          "0041220252695",
+          "0891534002123"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-8595564525035",
+        "query_image": "images/8595564525035_query.jpg",
+        "expected_product_id": "8595564525035",
+        "expected_product_name": "PORRIDGE BEEREN",
+        "first_product_name": "Na",
+        "ranked_product_ids": [
+          "8907516130653",
+          "8600197462180",
+          "3504182960536",
+          "2511349003037",
+          "5285004277039"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5200368003544",
+        "query_image": "images/5200368003544_query.jpg",
+        "expected_product_id": "5200368003544",
+        "expected_product_name": "Baklava",
+        "first_product_name": "Kroger natural fresh pork",
+        "ranked_product_ids": [
+          "0253314006477",
+          "8907516130653",
+          "3254568046070",
+          "0226499415341",
+          "0646670532627"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0842379198168",
+        "query_image": "images/0842379198168_query.jpg",
+        "expected_product_id": "0842379198168",
+        "expected_product_name": "Green Goddess dressing and dip",
+        "first_product_name": "Lemonade",
+        "ranked_product_ids": [
+          "0212321804995",
+          "0253314006477",
+          "2030509167339",
+          "3254568046070",
+          "8718452528561"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-8904063253842",
+        "query_image": "images/8904063253842_query.jpg",
+        "expected_product_id": "8904063253842",
+        "expected_product_name": "Salted peanuts",
+        "first_product_name": "Salted peanuts",
+        "ranked_product_ids": [
+          "8904063253842",
+          "0850006685271",
+          "8906152261080",
+          "9300633710637",
+          "20741570"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5000169040850",
+        "query_image": "images/5000169040850_query.jpg",
+        "expected_product_id": "5000169040850",
+        "expected_product_name": "Onions pickled in balsamic vine INGREDIENTS: onion",
+        "first_product_name": "Agneray Philippe",
+        "ranked_product_ids": [
+          "3254568046070",
+          "5285004277039",
+          "0850013497140",
+          "2544574049167",
+          "8907516130653"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0852610004004",
+        "query_image": "images/0852610004004_query.jpg",
+        "expected_product_id": "0852610004004",
+        "expected_product_name": "100% (Natural) Sunflower Oil",
+        "first_product_name": "Nix healthy snack",
+        "ranked_product_ids": [
+          "5285004277039",
+          "0850013497140",
+          "3254568046070",
+          "0253314006477",
+          "8907516130653"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0074265003656",
+        "query_image": "images/0074265003656_query.jpg",
+        "expected_product_id": "0074265003656",
+        "expected_product_name": "Mango Curry",
+        "first_product_name": "Agneray Philippe",
+        "ranked_product_ids": [
+          "3254568046070",
+          "2030509167339",
+          "0253314006477",
+          "8907516130653",
+          "0212321804995"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5410358464778",
+        "query_image": "images/5410358464778_query.jpg",
+        "expected_product_id": "5410358464778",
+        "expected_product_name": "Haribo Chamallows Hearts",
+        "first_product_name": "Agneray Philippe",
+        "ranked_product_ids": [
+          "3254568046070",
+          "8907516130653",
+          "2544574049167",
+          "2511349003037",
+          "0017400140380"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0075196001094",
+        "query_image": "images/0075196001094_query.jpg",
+        "expected_product_id": "0075196001094",
+        "expected_product_name": "Whole Milk",
+        "first_product_name": "Na",
+        "ranked_product_ids": [
+          "8907516130653",
+          "2544574049167",
+          "3254568046070",
+          "4061459304282",
+          "0212321804995"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-7790742324108",
+        "query_image": "images/7790742324108_query.jpg",
+        "expected_product_id": "7790742324108",
+        "expected_product_name": "Finlandia Más Liviano",
+        "first_product_name": "Finlandia Más Liviano",
+        "ranked_product_ids": [
+          "7790742324108",
+          "0838766006789",
+          "0062287112012",
+          "0040232289064",
+          "0074265003656"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0263550806502",
+        "query_image": "images/0263550806502_query.jpg",
+        "expected_product_id": "0263550806502",
+        "expected_product_name": "Chicken Breasts",
+        "first_product_name": "Savory Herbed Chicken Thighs",
+        "ranked_product_ids": [
+          "0259461911534",
+          "0031604005993",
+          "0011110122872",
+          "2978794000002",
+          "4061459304282"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-12483808",
+        "query_image": "images/12483808_query.jpg",
+        "expected_product_id": "12483808",
+        "expected_product_name": "Protein Iced Coffee Toasted Coconut Mocha",
+        "first_product_name": "Savory Herbed Chicken Thighs",
+        "ranked_product_ids": [
+          "0259461911534",
+          "87167696",
+          "5203176017147",
+          "0011110122872",
+          "00187251"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0050000231881",
+        "query_image": "images/0050000231881_query.jpg",
+        "expected_product_id": "0050000231881",
+        "expected_product_name": "White chocolate macadamia nut",
+        "first_product_name": "White chocolate macadamia nut",
+        "ranked_product_ids": [
+          "0050000231881",
+          "5099874314431",
+          "0025317610018",
+          "4088700084304",
+          "0062287112012"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0860005912223",
+        "query_image": "images/0860005912223_query.jpg",
+        "expected_product_id": "0860005912223",
+        "expected_product_name": "Calabria hot sauce",
+        "first_product_name": "Agneray Philippe",
+        "ranked_product_ids": [
+          "3254568046070",
+          "5285004277039",
+          "0850013497140",
+          "8907516130653",
+          "2030509167339"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0013800161567",
+        "query_image": "images/0013800161567_query.jpg",
+        "expected_product_id": "0013800161567",
+        "expected_product_name": "BBQ Recipe Pork Mac & Cheese Bowl",
+        "first_product_name": "Nix healthy snack",
+        "ranked_product_ids": [
+          "5285004277039",
+          "0850013497140",
+          "8907516130653",
+          "2511349003037",
+          "0646670532627"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5060695430129",
+        "query_image": "images/5060695430129_query.jpg",
+        "expected_product_id": "5060695430129",
+        "expected_product_name": "Skimmed milk cheese",
+        "first_product_name": "Kroger natural fresh pork",
+        "ranked_product_ids": [
+          "0253314006477",
+          "3254568046070",
+          "5000128824781",
+          "0850082111220",
+          "2544574049167"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0076410901893",
+        "query_image": "images/0076410901893_query.jpg",
+        "expected_product_id": "0076410901893",
+        "expected_product_name": "Whole Grain Cheddar",
+        "first_product_name": "Agneray Philippe",
+        "ranked_product_ids": [
+          "3254568046070",
+          "0253314006477",
+          "2030509167339",
+          "5000128824781",
+          "8907516130653"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0787790003533",
+        "query_image": "images/0787790003533_query.jpg",
+        "expected_product_id": "0787790003533",
+        "expected_product_name": "Whipped cream Strawberry protein",
+        "first_product_name": "Norwegian salmon smoke roasted",
+        "ranked_product_ids": [
+          "0850013497140",
+          "8907516130653",
+          "5285004277039",
+          "5000128623742",
+          "3254568046070"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0025317610018",
+        "query_image": "images/0025317610018_query.jpg",
+        "expected_product_id": "0025317610018",
+        "expected_product_name": "Organic Asian Style Meatballs",
+        "first_product_name": "Norwegian salmon smoke roasted",
+        "ranked_product_ids": [
+          "0850013497140",
+          "5285004277039",
+          "8907516130653",
+          "0834266906949",
+          "4061459304282"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-7350002401712",
+        "query_image": "images/7350002401712_query.jpg",
+        "expected_product_id": "7350002401712",
+        "expected_product_name": "Rapsolja",
+        "first_product_name": "Agneray Philippe",
+        "ranked_product_ids": [
+          "3254568046070",
+          "8855273030733",
+          "2030509167339",
+          "8480010202861",
+          "6291021970890"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5054781256694",
+        "query_image": "images/5054781256694_query.jpg",
+        "expected_product_id": "5054781256694",
+        "expected_product_name": "Edamame soya beans",
+        "first_product_name": "Yoghurt griekse stijl aardbei",
+        "ranked_product_ids": [
+          "8718452528561",
+          "5285004277039",
+          "2511349003037",
+          "5203176017147",
+          "0259461911534"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5060321390438",
+        "query_image": "images/5060321390438_query.jpg",
+        "expected_product_id": "5060321390438",
+        "expected_product_name": "Soft Taco Wraps",
+        "first_product_name": "Soft Taco Wraps",
+        "ranked_product_ids": [
+          "5060321390438",
+          "0030000578278",
+          "0728229060062",
+          "3228022210062",
+          "0714444002253"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0852243002699",
+        "query_image": "images/0852243002699_query.jpg",
+        "expected_product_id": "0852243002699",
+        "expected_product_name": "Cotton Candy Icecream",
+        "first_product_name": "Yoghurt griekse stijl aardbei",
+        "ranked_product_ids": [
+          "8718452528561",
+          "8907516130653",
+          "00187251",
+          "5285004277039",
+          "14304505"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-3700181513906",
+        "query_image": "images/3700181513906_query.jpg",
+        "expected_product_id": "3700181513906",
+        "expected_product_name": "Maxi gauffre",
+        "first_product_name": "Na",
+        "ranked_product_ids": [
+          "8907516130653",
+          "2531346004905",
+          "2978794000002",
+          "5285004277039",
+          "2511349003037"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0851784007392",
+        "query_image": "images/0851784007392_query.jpg",
+        "expected_product_id": "0851784007392",
+        "expected_product_name": "PEANUT POWDER",
+        "first_product_name": "Grillin N’ Dipping Sauce",
+        "ranked_product_ids": [
+          "0852671069851",
+          "0838766006789",
+          "0858176002782",
+          "0098487962478",
+          "4255719304062"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-00265324",
+        "query_image": "images/00265324_query.jpg",
+        "expected_product_id": "00265324",
+        "expected_product_name": "Edamame Beans",
+        "first_product_name": "Na",
+        "ranked_product_ids": [
+          "8907516130653",
+          "5285004277039",
+          "2531346004905",
+          "2511349003037",
+          "0205480205178"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-7613312307793",
+        "query_image": "images/7613312307793_query.jpg",
+        "expected_product_id": "7613312307793",
+        "expected_product_name": "Mochi Ice Cream",
+        "first_product_name": "Agneray Philippe",
+        "ranked_product_ids": [
+          "3254568046070",
+          "8480010202861",
+          "20919870",
+          "2030509167339",
+          "5411833101133"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5760466748902",
+        "query_image": "images/5760466748902_query.jpg",
+        "expected_product_id": "5760466748902",
+        "expected_product_name": "Ostehaps",
+        "first_product_name": "Ostehaps",
+        "ranked_product_ids": [
+          "5760466748902",
+          "00385794",
+          "0028400329484",
+          "3406334792470",
+          "20708191"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-00252362",
+        "query_image": "images/00252362_query.jpg",
+        "expected_product_id": "00252362",
+        "expected_product_name": "8 Fondant Fancies",
+        "first_product_name": "8 Fondant Fancies",
+        "ranked_product_ids": [
+          "00252362",
+          "0734414000164",
+          "5060311550088",
+          "00863964",
+          "4337185603983"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-4560292292478",
+        "query_image": "images/4560292292478_query.jpg",
+        "expected_product_id": "4560292292478",
+        "expected_product_name": "Green EDITION",
+        "first_product_name": "Nix healthy snack",
+        "ranked_product_ids": [
+          "5285004277039",
+          "2544574049167",
+          "2511349003037",
+          "8718452528561",
+          "8907516130653"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0891534002123",
+        "query_image": "images/0891534002123_query.jpg",
+        "expected_product_id": "0891534002123",
+        "expected_product_name": "Ground beef",
+        "first_product_name": "Na",
+        "ranked_product_ids": [
+          "8907516130653",
+          "5285004277039",
+          "4061459304282",
+          "3254568046070",
+          "0253314006477"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-6291021970890",
+        "query_image": "images/6291021970890_query.jpg",
+        "expected_product_id": "6291021970890",
+        "expected_product_name": "puck cream cheese 2 pack",
+        "first_product_name": "Paciocotti Hamburger di Prosciutto Cotto",
+        "ranked_product_ids": [
+          "8007660506219",
+          "7622201393304",
+          "4337256167017",
+          "8906152261080",
+          "5000128755047"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-4099100127072",
+        "query_image": "images/4099100127072_query.jpg",
+        "expected_product_id": "4099100127072",
+        "expected_product_name": "Apple Cinnamon muffins",
+        "first_product_name": "Na",
+        "ranked_product_ids": [
+          "8907516130653",
+          "5285004277039",
+          "00187251",
+          "8600197462180",
+          "0850013497140"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5060319171230",
+        "query_image": "images/5060319171230_query.jpg",
+        "expected_product_id": "5060319171230",
+        "expected_product_name": "StrawBuried Fruit Bar",
+        "first_product_name": "StrawBuried Fruit Bar",
+        "ranked_product_ids": [
+          "5060319171230",
+          "8886467100109",
+          "4260715299038",
+          "5412514938253",
+          "0025317610018"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5600499519486",
+        "query_image": "images/5600499519486_query.jpg",
+        "expected_product_id": "5600499519486",
+        "expected_product_name": "Protein Muffins Carob",
+        "first_product_name": "Stormio",
+        "ranked_product_ids": [
+          "7630311590827",
+          "8907516130653",
+          "2511349003037",
+          "0236084012862",
+          "5285004277039"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5099839287633",
+        "query_image": "images/5099839287633_query.jpg",
+        "expected_product_id": "5099839287633",
+        "expected_product_name": "Medium Red Grated Cheddar Cheese",
+        "first_product_name": "Na",
+        "ranked_product_ids": [
+          "8907516130653",
+          "3254568046070",
+          "5285004277039",
+          "2511349003037",
+          "0253314006477"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-20708191",
+        "query_image": "images/20708191_query.jpg",
+        "expected_product_id": "20708191",
+        "expected_product_name": "Peach rings",
+        "first_product_name": "slanina afumata",
+        "ranked_product_ids": [
+          "2531346004905",
+          "2544574049167",
+          "8907516130653",
+          "3254568046070",
+          "0236084012862"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-3700569008529",
+        "query_image": "images/3700569008529_query.jpg",
+        "expected_product_id": "3700569008529",
+        "expected_product_name": "Green Dolce",
+        "first_product_name": "Green Dolce",
+        "ranked_product_ids": [
+          "3700569008529",
+          "0764549102006",
+          "0860005912223",
+          "0842379198168",
+          "0057000012861"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0720379506100",
+        "query_image": "images/0720379506100_query.jpg",
+        "expected_product_id": "0720379506100",
+        "expected_product_name": "Power PPuffs",
+        "first_product_name": "Agneray Philippe",
+        "ranked_product_ids": [
+          "3254568046070",
+          "0253314006477",
+          "8907516130653",
+          "5411833101133",
+          "8855273030733"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0028400761895",
+        "query_image": "images/0028400761895_query.jpg",
+        "expected_product_id": "0028400761895",
+        "expected_product_name": "White Corn Chips",
+        "first_product_name": "scarita malina",
+        "ranked_product_ids": [
+          "2540317014966",
+          "0028400761895",
+          "0788070682141",
+          "0041220252695",
+          "7441029520705"
+        ],
+        "top1_success": false,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0686464610001",
+        "query_image": "images/0686464610001_query.jpg",
+        "expected_product_id": "0686464610001",
+        "expected_product_name": "Punchy Monkey",
+        "first_product_name": "Agneray Philippe",
+        "ranked_product_ids": [
+          "3254568046070",
+          "0253314006477",
+          "2030509167339",
+          "5411833101133",
+          "8855273030733"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-4056489054450",
+        "query_image": "images/4056489054450_query.jpg",
+        "expected_product_id": "4056489054450",
+        "expected_product_name": "Putenschinken",
+        "first_product_name": "Na",
+        "ranked_product_ids": [
+          "8907516130653",
+          "2544574049167",
+          "2511349003037",
+          "0226499415341",
+          "8718452528561"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0021908112565",
+        "query_image": "images/0021908112565_query.jpg",
+        "expected_product_id": "0021908112565",
+        "expected_product_name": "Cherry almond fruit infused chewy granola bars, cherry almond",
+        "first_product_name": "Nix healthy snack",
+        "ranked_product_ids": [
+          "5285004277039",
+          "8907516130653",
+          "0850013497140",
+          "2511349003037",
+          "2531346004905"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-4337185603983",
+        "query_image": "images/4337185603983_query.jpg",
+        "expected_product_id": "4337185603983",
+        "expected_product_name": "Gold Krüstchen knusprige Weizenbrötchen",
+        "first_product_name": "Nix healthy snack",
+        "ranked_product_ids": [
+          "5285004277039",
+          "8907516130653",
+          "3254568046070",
+          "2511349003037",
+          "2544574049167"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0077484000208",
+        "query_image": "images/0077484000208_query.jpg",
+        "expected_product_id": "0077484000208",
+        "expected_product_name": "Apple Juice",
+        "first_product_name": "Azura Sun Joy Sweet & Delicious Baby Plum",
+        "ranked_product_ids": [
+          "3504182960536",
+          "8595564525035",
+          "8007660506219",
+          "0077484000208",
+          "77028228"
+        ],
+        "top1_success": false,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0816493010149",
+        "query_image": "images/0816493010149_query.jpg",
+        "expected_product_id": "0816493010149",
+        "expected_product_name": "Hot Sauce Chile Habanero",
+        "first_product_name": "CHOCOLATEY CATS COOKIES For People",
+        "ranked_product_ids": [
+          "00187251",
+          "8718452528561",
+          "0212321804995",
+          "0259461911534",
+          "5285004277039"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0053400202550",
+        "query_image": "images/0053400202550_query.jpg",
+        "expected_product_id": "0053400202550",
+        "expected_product_name": "Mild Pampered Pork Sausage",
+        "first_product_name": "Na",
+        "ranked_product_ids": [
+          "8907516130653",
+          "2511349003037",
+          "2531346004905",
+          "2978794000002",
+          "0226499415341"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0226499415341",
+        "query_image": "images/0226499415341_query.jpg",
+        "expected_product_id": "0226499415341",
+        "expected_product_name": "CHICKEN TACO KIT",
+        "first_product_name": "Norwegian salmon smoke roasted",
+        "ranked_product_ids": [
+          "0850013497140",
+          "8907516130653",
+          "8600197462180",
+          "2531346004905",
+          "00187251"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5000128755047",
+        "query_image": "images/5000128755047_query.jpg",
+        "expected_product_id": "5000128755047",
+        "expected_product_name": "Sea Salt & Black Pepper Croutons",
+        "first_product_name": "Nix healthy snack",
+        "ranked_product_ids": [
+          "5285004277039",
+          "8718452528561",
+          "3504182960536",
+          "2511349003037",
+          "0850013497140"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0085239065334",
+        "query_image": "images/0085239065334_query.jpg",
+        "expected_product_id": "0085239065334",
+        "expected_product_name": "chuck light tuna",
+        "first_product_name": "Agneray Philippe",
+        "ranked_product_ids": [
+          "3254568046070",
+          "0253314006477",
+          "8907516130653",
+          "4061459304282",
+          "5411833101133"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0051497450410",
+        "query_image": "images/0051497450410_query.jpg",
+        "expected_product_id": "0051497450410",
+        "expected_product_name": "Bio Whey",
+        "first_product_name": "Bio Whey",
+        "ranked_product_ids": [
+          "0051497450410",
+          "0852671069851",
+          "87167696",
+          "0214063002806",
+          "0040232289064"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0041699991217",
+        "query_image": "images/0041699991217_query.jpg",
+        "expected_product_id": "0041699991217",
+        "expected_product_name": "C&C pineapple soda",
+        "first_product_name": "Norwegian salmon smoke roasted",
+        "ranked_product_ids": [
+          "0850013497140",
+          "5285004277039",
+          "0075880334071",
+          "0212321804995",
+          "8907516130653"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0049022962620",
+        "query_image": "images/0049022962620_query.jpg",
+        "expected_product_id": "0049022962620",
+        "expected_product_name": "Whole Cashews Sea Salt & Pepper",
+        "first_product_name": "Nix healthy snack",
+        "ranked_product_ids": [
+          "5285004277039",
+          "8718452528561",
+          "2511349003037",
+          "0850013497140",
+          "8907516130653"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0734414000164",
+        "query_image": "images/0734414000164_query.jpg",
+        "expected_product_id": "0734414000164",
+        "expected_product_name": "Panqueque y waffles mix",
+        "first_product_name": "Nix healthy snack",
+        "ranked_product_ids": [
+          "5285004277039",
+          "0850013497140",
+          "4061459304282",
+          "7630311590827",
+          "5033374002061"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      }
+    ]
+  },
+  "image_category_search": {
+    "summary": {
+      "queries": 52,
+      "top1_hits": 16,
+      "top1_rate": 0.3077,
+      "top5_hits": 19,
+      "top5_rate": 0.3654,
+      "unlabeled_queries_excluded": 48
+    },
+    "cases": [
+      {
+        "query_id": "off-01758979",
+        "category": "plant based foods and beverages",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5059697771040",
+        "category": "meals",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5010251561958",
+        "category": "condiments",
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-00278140",
+        "category": "condiments",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-42457008",
+        "category": "dairies",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5941866622409",
+        "category": "meat alternatives",
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0208126410592",
+        "category": "meats and their products",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-8412258303017",
+        "category": "plant based foods and beverages",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-9300633679965",
+        "category": "beverages",
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0055742578010",
+        "category": "meats and their products",
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-7610313424771",
+        "category": "condiments",
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0603907000373",
+        "category": "dietary supplements",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5000157062727",
+        "category": "canned foods",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0011110005083",
+        "category": "groceries",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-4750007790355",
+        "category": "snacks",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-8437019491017",
+        "category": "plant based foods and beverages",
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0011110688729",
+        "category": "stuffing",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-87167696",
+        "category": "beverages and beverages preparations",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-20741570",
+        "category": "snacks",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-4800016112133",
+        "category": "breakfasts",
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5000128824781",
+        "category": "plant based foods and beverages",
+        "top1_success": false,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0681131017923",
+        "category": "meals",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0850083092214",
+        "category": "dietary supplements",
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5055365625448",
+        "category": "chocolate coated orange jelly",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-2595000004335",
+        "category": "meats and their products",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-00405577",
+        "category": "snacks",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5200368003544",
+        "category": "snacks",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-8904063253842",
+        "category": "plant based foods and beverages",
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5000169040850",
+        "category": "plant based foods and beverages",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5410358464778",
+        "category": "snacks",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-7790742324108",
+        "category": "dairies",
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0050000231881",
+        "category": "dairies",
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0076410901893",
+        "category": "Snacks  Sweet snacks  Biscuits and cakes",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0025317610018",
+        "category": "meats and their products",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5054781256694",
+        "category": "plant based foods and beverages",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5060321390438",
+        "category": "plant based foods and beverages",
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-00265324",
+        "category": "plant based foods and beverages",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-7613312307793",
+        "category": "desserts",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5760466748902",
+        "category": "dairies",
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-00252362",
+        "category": "snacks",
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5060319171230",
+        "category": "snacks",
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5600499519486",
+        "category": "snacks",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5099839287633",
+        "category": "dairies",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-20708191",
+        "category": "snacks",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0028400761895",
+        "category": "snacks",
+        "top1_success": false,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-4056489054450",
+        "category": "meats and their products",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0021908112565",
+        "category": "snacks",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-4337185603983",
+        "category": "plant based foods and beverages",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0077484000208",
+        "category": "beverages and beverages preparations",
+        "top1_success": false,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0816493010149",
+        "category": "condiments",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0085239065334",
+        "category": "seafood",
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0051497450410",
+        "category": "dietary supplements",
+        "top1_success": true,
+        "top5_success": true
+      }
+    ]
+  },
+  "text_search": {
+    "summary": {
+      "queries": 100,
+      "top1_hits": 83,
+      "top1_rate": 0.83,
+      "top5_hits": 88,
+      "top5_rate": 0.88
+    },
+    "cases": [
+      {
+        "query_id": "off-01758979",
+        "query": "Quick cook medium noodles",
+        "expected_product_id": "01758979",
+        "ranked_product_ids": [
+          "01758979",
+          "5050665020405",
+          "5099839287633",
+          "9310140017457",
+          "9555022311050"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0041900090951",
+        "query": "Strawberry Whole Milk",
+        "expected_product_id": "0041900090951",
+        "ranked_product_ids": [
+          "0041900090951",
+          "0044100103209",
+          "0075196001094",
+          "0043832551036",
+          "0044100102424"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5059697771040",
+        "query": "Smoked Haddock Risotto",
+        "expected_product_id": "5059697771040",
+        "ranked_product_ids": [
+          "5059697771040",
+          "0646670532627",
+          "0815800022523",
+          "5941866622409"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0088468562308",
+        "query": "Herring fillets in dill-herb sauce",
+        "expected_product_id": "0088468562308",
+        "ranked_product_ids": [
+          "0088468562308",
+          "5901069000817",
+          "00020689",
+          "0021357099578",
+          "0078895100853"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5010251561958",
+        "query": "Tomato & Mushroom Pasta Sauce",
+        "expected_product_id": "5010251561958",
+        "ranked_product_ids": [
+          "5010251561958",
+          "5901069000817",
+          "0021357099578",
+          "0057000012861",
+          "0074175020569"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0860012100613",
+        "query": "Honey Buzz 50",
+        "expected_product_id": "0860012100613",
+        "ranked_product_ids": [
+          "0860012100613",
+          "0850044112913",
+          "5391209000263",
+          "5900571104877",
+          "9310072028057"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-00278140",
+        "query": "Fragrant Tikka Curry Paste",
+        "expected_product_id": "00278140",
+        "ranked_product_ids": [
+          "00278140",
+          "0074265003656",
+          "9334279001910"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-42457008",
+        "query": "DESSERT PROTEICO GUSTO CIOCCOLATO",
+        "expected_product_id": "42457008",
+        "ranked_product_ids": [
+          "42457008"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0043000955697",
+        "query": "Lemonade",
+        "expected_product_id": "0043000955697",
+        "ranked_product_ids": [
+          "0012000042836",
+          "0043000955697",
+          "0212321804995",
+          "4069365842737",
+          "5099874314431"
+        ],
+        "top1_success": false,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-7441029520705",
+        "query": "Pan integral de grano entero Oatnut Avena Nuez",
+        "expected_product_id": "7441029520705",
+        "ranked_product_ids": [
+          "7441029520705",
+          "0642651100021",
+          "7803468002042",
+          "8435382822278",
+          "0061024774506"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0856371008509",
+        "query": "Maple Bourbon Fudge",
+        "expected_product_id": "0856371008509",
+        "ranked_product_ids": [
+          "0856371008509",
+          "0654954233368"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5941866622409",
+        "query": "PlantZalmon",
+        "expected_product_id": "5941866622409",
+        "ranked_product_ids": [
+          "5941866622409"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0208126410592",
+        "query": "Bone-In loin Assorted Pork Chops",
+        "expected_product_id": "0208126410592",
+        "ranked_product_ids": [
+          "0208126410592",
+          "0086477005885",
+          "00020689",
+          "0013800161567",
+          "0053400202550"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-8412258303017",
+        "query": "Lentejas cocidas",
+        "expected_product_id": "8412258303017",
+        "ranked_product_ids": [
+          "8412258303017"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-9300633679965",
+        "query": "Chocolate flavoured milk",
+        "expected_product_id": "9300633679965",
+        "ranked_product_ids": [
+          "9300633679965",
+          "0044100102424",
+          "8600197462180",
+          "0050000231881",
+          "8712566328352"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0758108808164",
+        "query": "Hazelnut spread with cocoa",
+        "expected_product_id": "0758108808164",
+        "ranked_product_ids": [
+          "0758108808164",
+          "00709767",
+          "0738337885549",
+          "0744987002090",
+          "16612150"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0242247007859",
+        "query": "93% Lean Ground Beef",
+        "expected_product_id": "0242247007859",
+        "ranked_product_ids": [
+          "0242247007859",
+          "0200094309038",
+          "0891534002123",
+          "0078742307299",
+          "0652729710854"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5060311550088",
+        "query": "Glorious White Chocolate and Cramberry Muffin Mix",
+        "expected_product_id": "5060311550088",
+        "ranked_product_ids": [],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0055742578010",
+        "query": "Popcorn Chicken",
+        "expected_product_id": "0055742578010",
+        "ranked_product_ids": [
+          "0055742578010",
+          "0011110122872",
+          "0011110688729",
+          "0197870050836",
+          "02088927"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-7610313424771",
+        "query": "Herbamare",
+        "expected_product_id": "7610313424771",
+        "ranked_product_ids": [
+          "7610313424771"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0603907000373",
+        "query": "Whey protein isolate chocolate flavor",
+        "expected_product_id": "0603907000373",
+        "ranked_product_ids": [
+          "0603907000373",
+          "0753215592814",
+          "4255719304062",
+          "7340195410349",
+          "0051497450410"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5000157062727",
+        "query": "Mulligatawny soup 400 g",
+        "expected_product_id": "5000157062727",
+        "ranked_product_ids": [
+          "5000157062727",
+          "0197870050836",
+          "0681131017923"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-3367824928338",
+        "query": "Coppa",
+        "expected_product_id": "3367824928338",
+        "ranked_product_ids": [
+          "3367824928338"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0011110005083",
+        "query": "RED WINE VINEGAR",
+        "expected_product_id": "0011110005083",
+        "ranked_product_ids": [],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-9310140017457",
+        "query": "YUM. instant rice noodles",
+        "expected_product_id": "9310140017457",
+        "ranked_product_ids": [
+          "9310140017457",
+          "0061024774506",
+          "0013800810168",
+          "0017400140380",
+          "0060383173050"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0688267548871",
+        "query": "Organic Spring Mix",
+        "expected_product_id": "0688267548871",
+        "ranked_product_ids": [
+          "0688267548871",
+          "0011110688729",
+          "0025317610018",
+          "00709767",
+          "0074026022162"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-4750007790355",
+        "query": "Vaflių ritinėliai su kokosų įdaru",
+        "expected_product_id": "4750007790355",
+        "ranked_product_ids": [
+          "4750007790355"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0255396510989",
+        "query": "Cookie Dough Brownie",
+        "expected_product_id": "0255396510989",
+        "ranked_product_ids": [
+          "0255396510989",
+          "0072250013635",
+          "0709993307089"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-8437019491017",
+        "query": "Double Chocolate Chip",
+        "expected_product_id": "8437019491017",
+        "ranked_product_ids": [
+          "8437019491017",
+          "0063348014948",
+          "0077567002891",
+          "9343275001213",
+          "0000390102489"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0011110688729",
+        "query": "Chicken Flavored Stuffing Mix",
+        "expected_product_id": "0011110688729",
+        "ranked_product_ids": [
+          "0011110688729",
+          "0011110122872",
+          "0038000205460",
+          "0055742578010",
+          "0074026022162"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0237855106926",
+        "query": "Atlantic Salmon Boneless Fillet",
+        "expected_product_id": "0237855106926",
+        "ranked_product_ids": [
+          "0237855106926",
+          "0658533123033",
+          "0850013497140",
+          "5941866622409"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-87167696",
+        "query": "Pilsner",
+        "expected_product_id": "87167696",
+        "ranked_product_ids": [
+          "87167696"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-20741570",
+        "query": "Butter Organic Microwave Popcorn, Butter",
+        "expected_product_id": "20741570",
+        "ranked_product_ids": [
+          "20741570",
+          "0047263030115",
+          "0850023066053",
+          "0850083092214",
+          "3800020401248"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0852704005184",
+        "query": "Breakfast Blueberry Biscuits",
+        "expected_product_id": "0852704005184",
+        "ranked_product_ids": [
+          "0852704005184",
+          "0723246294773",
+          "0838766005164",
+          "16612150",
+          "4056489342267"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-56209524000259",
+        "query": "shortbread rounds",
+        "expected_product_id": "56209524000259",
+        "ranked_product_ids": [
+          "56209524000259",
+          "0078907100154"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-4800016112133",
+        "query": "Quake overload(mocha butter)",
+        "expected_product_id": "4800016112133",
+        "ranked_product_ids": [
+          "0047263030115",
+          "0850023066053",
+          "0850083092214",
+          "12483808",
+          "20741570"
+        ],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-5000128824781",
+        "query": "Moroccan Style Cous Cous",
+        "expected_product_id": "5000128824781",
+        "ranked_product_ids": [
+          "5000128824781",
+          "0025317610018",
+          "20427610",
+          "20919870"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0681131017923",
+        "query": "Creamy Chicken & Wild Rice Soup",
+        "expected_product_id": "0681131017923",
+        "ranked_product_ids": [
+          "0681131017923",
+          "0197870050836",
+          "0011110122872",
+          "0011110688729",
+          "0013800810168"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5412514938253",
+        "query": "Durum Warps",
+        "expected_product_id": "5412514938253",
+        "ranked_product_ids": [
+          "5412514938253",
+          "5000128824781"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0850083092214",
+        "query": "Whey ISO chocolate, peanut butter",
+        "expected_product_id": "0850083092214",
+        "ranked_product_ids": [
+          "0850083092214",
+          "0603907000373",
+          "3800020401248",
+          "5060065060628",
+          "0000390102489"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5055365625448",
+        "query": "Orange Tangs",
+        "expected_product_id": "5055365625448",
+        "ranked_product_ids": [],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-2595000004335",
+        "query": "Parówki premium z szynki",
+        "expected_product_id": "2595000004335",
+        "ranked_product_ids": [
+          "2595000004335",
+          "6009636825005",
+          "9100000962078",
+          "16612150"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0214063002806",
+        "query": "Muscle Milk Protein Shake",
+        "expected_product_id": "0214063002806",
+        "ranked_product_ids": [
+          "0214063002806",
+          "0041900090951",
+          "0044100102424",
+          "0044100103209",
+          "0075196001094"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-00405577",
+        "query": "Gluten Free Victoria Sandwich Cake",
+        "expected_product_id": "00405577",
+        "ranked_product_ids": [
+          "00405577",
+          "0044000071448",
+          "02088927",
+          "4061461083144",
+          "0075880334071"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-9350548515025",
+        "query": "Cooked Tuna & Avocado sushi",
+        "expected_product_id": "9350548515025",
+        "ranked_product_ids": [
+          "9350548515025",
+          "0085239065334",
+          "00863964",
+          "4009233005963",
+          "6970013790356"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0815800022523",
+        "query": "Original Recipe Smoked Shorty Sausages",
+        "expected_product_id": "0815800022523",
+        "ranked_product_ids": [
+          "0815800022523",
+          "0013800161567",
+          "0041220252695",
+          "0072470006684",
+          "0646670532627"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-8595564525035",
+        "query": "PORRIDGE BEEREN",
+        "expected_product_id": "8595564525035",
+        "ranked_product_ids": [
+          "8595564525035",
+          "4088700084304"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5200368003544",
+        "query": "Baklava",
+        "expected_product_id": "5200368003544",
+        "ranked_product_ids": [
+          "5200368003544"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0842379198168",
+        "query": "Green Goddess dressing and dip",
+        "expected_product_id": "0842379198168",
+        "ranked_product_ids": [],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-8904063253842",
+        "query": "Salted peanuts",
+        "expected_product_id": "8904063253842",
+        "ranked_product_ids": [
+          "0051933051300",
+          "8904063253842",
+          "0876274001841",
+          "7790742324108"
+        ],
+        "top1_success": false,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5000169040850",
+        "query": "Onions pickled in balsamic vine INGREDIENTS: onion",
+        "expected_product_id": "5000169040850",
+        "ranked_product_ids": [
+          "5000169040850",
+          "00020689",
+          "0066343216362",
+          "0088468562308",
+          "6970013790356"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0852610004004",
+        "query": "100% (Natural) Sunflower Oil",
+        "expected_product_id": "0852610004004",
+        "ranked_product_ids": [
+          "0852610004004",
+          "0041415014329",
+          "0064144040902",
+          "0253314006477",
+          "0604565349552"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0074265003656",
+        "query": "Mango Curry",
+        "expected_product_id": "0074265003656",
+        "ranked_product_ids": [
+          "0074265003656",
+          "00278140",
+          "4069365842737",
+          "9334279001910"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5410358464778",
+        "query": "Haribo Chamallows Hearts",
+        "expected_product_id": "5410358464778",
+        "ranked_product_ids": [
+          "5410358464778",
+          "0042238724952"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0075196001094",
+        "query": "Whole Milk",
+        "expected_product_id": "0075196001094",
+        "ranked_product_ids": [
+          "0041900090951",
+          "0044100103209",
+          "0075196001094",
+          "0043832551036",
+          "0044100102424"
+        ],
+        "top1_success": false,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-7790742324108",
+        "query": "Finlandia Más Liviano",
+        "expected_product_id": "7790742324108",
+        "ranked_product_ids": [
+          "7790742324108"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0263550806502",
+        "query": "Chicken Breasts",
+        "expected_product_id": "0263550806502",
+        "ranked_product_ids": [
+          "0263550806502",
+          "0011110122872",
+          "0011110688729",
+          "0055742578010",
+          "0197870050836"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-12483808",
+        "query": "Protein Iced Coffee Toasted Coconut Mocha",
+        "expected_product_id": "12483808",
+        "ranked_product_ids": [
+          "12483808",
+          "3770009606349",
+          "4255719304062",
+          "0788070682141",
+          "0214063002806"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0050000231881",
+        "query": "White chocolate macadamia nut",
+        "expected_product_id": "0050000231881",
+        "ranked_product_ids": [],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0860005912223",
+        "query": "Calabria hot sauce",
+        "expected_product_id": "0860005912223",
+        "ranked_product_ids": [
+          "0860005912223",
+          "0816493010132",
+          "0816493010149",
+          "0021357099578",
+          "0078895100853"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0013800161567",
+        "query": "BBQ Recipe Pork Mac & Cheese Bowl",
+        "expected_product_id": "0013800161567",
+        "ranked_product_ids": [
+          "0013800161567",
+          "0021333600408",
+          "0053400202550",
+          "0075925307718",
+          "00863964"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5060695430129",
+        "query": "Skimmed milk cheese",
+        "expected_product_id": "5060695430129",
+        "ranked_product_ids": [
+          "5060695430129",
+          "0013800161567",
+          "0021333600408",
+          "0041900090951",
+          "0044100102424"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0076410901893",
+        "query": "Whole Grain Cheddar",
+        "expected_product_id": "0076410901893",
+        "ranked_product_ids": [
+          "0076410901893",
+          "0094331036906",
+          "0041900090951",
+          "0043832551036",
+          "0044100103209"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0787790003533",
+        "query": "Whipped cream Strawberry protein",
+        "expected_product_id": "0787790003533",
+        "ranked_product_ids": [
+          "0787790003533",
+          "6413300018042",
+          "7340195410349",
+          "9351777001495",
+          "0000390102489"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0025317610018",
+        "query": "Organic Asian Style Meatballs",
+        "expected_product_id": "0025317610018",
+        "ranked_product_ids": [
+          "0025317610018",
+          "00709767",
+          "0688267548871",
+          "0701722747746",
+          "0719283276575"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-7350002401712",
+        "query": "Rapsolja",
+        "expected_product_id": "7350002401712",
+        "ranked_product_ids": [
+          "7350002401712"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5054781256694",
+        "query": "Edamame soya beans",
+        "expected_product_id": "5054781256694",
+        "ranked_product_ids": [
+          "5054781256694",
+          "00265324",
+          "0013800810168",
+          "0055742523836",
+          "0071109991254"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5060321390438",
+        "query": "Soft Taco Wraps",
+        "expected_product_id": "5060321390438",
+        "ranked_product_ids": [
+          "5060321390438",
+          "0043832551036",
+          "0226499415341",
+          "10057728",
+          "9317224400624"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0852243002699",
+        "query": "Cotton Candy Icecream",
+        "expected_product_id": "0852243002699",
+        "ranked_product_ids": [
+          "0852243002699",
+          "5000159531207"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-3700181513906",
+        "query": "Maxi gauffre",
+        "expected_product_id": "3700181513906",
+        "ranked_product_ids": [
+          "3700181513906"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0851784007392",
+        "query": "PEANUT POWDER",
+        "expected_product_id": "0851784007392",
+        "ranked_product_ids": [
+          "0851784007392",
+          "0811588030200",
+          "0850028332023",
+          "0850083092214",
+          "3800020401248"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-00265324",
+        "query": "Edamame Beans",
+        "expected_product_id": "00265324",
+        "ranked_product_ids": [
+          "00265324",
+          "5054781256694",
+          "0013800810168",
+          "0055742523836",
+          "0071109991254"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-7613312307793",
+        "query": "Mochi Ice Cream",
+        "expected_product_id": "7613312307793",
+        "ranked_product_ids": [
+          "7613312307793",
+          "3536680312067",
+          "8711327397903",
+          "8712566328352",
+          "0000390102489"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5760466748902",
+        "query": "Ostehaps",
+        "expected_product_id": "5760466748902",
+        "ranked_product_ids": [
+          "5760466748902"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-00252362",
+        "query": "8 Fondant Fancies",
+        "expected_product_id": "00252362",
+        "ranked_product_ids": [
+          "00252362",
+          "6005207000062"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-4560292292478",
+        "query": "Green EDITION",
+        "expected_product_id": "4560292292478",
+        "ranked_product_ids": [],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0891534002123",
+        "query": "Ground beef",
+        "expected_product_id": "0891534002123",
+        "ranked_product_ids": [
+          "0242247007859",
+          "0891534002123",
+          "0078742307299",
+          "0200094309038",
+          "0652729710854"
+        ],
+        "top1_success": false,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-6291021970890",
+        "query": "puck cream cheese 2 pack",
+        "expected_product_id": "6291021970890",
+        "ranked_product_ids": [
+          "6291021970890",
+          "0000390102489",
+          "0013800161567",
+          "0021333600408",
+          "0075925307718"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-4099100127072",
+        "query": "Apple Cinnamon muffins",
+        "expected_product_id": "4099100127072",
+        "ranked_product_ids": [
+          "4099100127072",
+          "0047263030115",
+          "0077484000208",
+          "0686234154025",
+          "3343144192123"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5060319171230",
+        "query": "StrawBuried Fruit Bar",
+        "expected_product_id": "5060319171230",
+        "ranked_product_ids": [
+          "5060319171230",
+          "0000390102489",
+          "0021908112565",
+          "0038000205460",
+          "0853687004973"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5600499519486",
+        "query": "Protein Muffins Carob",
+        "expected_product_id": "5600499519486",
+        "ranked_product_ids": [
+          "5600499519486",
+          "0214063002806",
+          "0603907000373",
+          "0709993307089",
+          "0753215592814"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5099839287633",
+        "query": "Medium Red Grated Cheddar Cheese",
+        "expected_product_id": "5099839287633",
+        "ranked_product_ids": [],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-20708191",
+        "query": "Peach rings",
+        "expected_product_id": "20708191",
+        "ranked_product_ids": [
+          "20708191",
+          "0810164380210",
+          "0847589041167",
+          "8410525263606"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-3700569008529",
+        "query": "Green Dolce",
+        "expected_product_id": "3700569008529",
+        "ranked_product_ids": [],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0720379506100",
+        "query": "Power PPuffs",
+        "expected_product_id": "0720379506100",
+        "ranked_product_ids": [
+          "0720379506100",
+          "0810044889154"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0028400761895",
+        "query": "White Corn Chips",
+        "expected_product_id": "0028400761895",
+        "ranked_product_ids": [],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0686464610001",
+        "query": "Punchy Monkey",
+        "expected_product_id": "0686464610001",
+        "ranked_product_ids": [
+          "0686464610001"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-4056489054450",
+        "query": "Putenschinken",
+        "expected_product_id": "4056489054450",
+        "ranked_product_ids": [
+          "4056489054450"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0021908112565",
+        "query": "Cherry almond fruit infused chewy granola bars, cherry almond",
+        "expected_product_id": "0021908112565",
+        "ranked_product_ids": [
+          "0021908112565",
+          "0047263030115",
+          "7694000173463",
+          "8600197462180",
+          "9300633364304"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-4337185603983",
+        "query": "Gold Krüstchen knusprige Weizenbrötchen",
+        "expected_product_id": "4337185603983",
+        "ranked_product_ids": [],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0077484000208",
+        "query": "Apple Juice",
+        "expected_product_id": "0077484000208",
+        "ranked_product_ids": [
+          "0077484000208",
+          "0686234154025",
+          "5013803996529",
+          "0047263030115",
+          "4099100127072"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0816493010149",
+        "query": "Hot Sauce Chile Habanero",
+        "expected_product_id": "0816493010149",
+        "ranked_product_ids": [
+          "0816493010132",
+          "0816493010149",
+          "0860005912223",
+          "0021357099578",
+          "0078895100853"
+        ],
+        "top1_success": false,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0053400202550",
+        "query": "Mild Pampered Pork Sausage",
+        "expected_product_id": "0053400202550",
+        "ranked_product_ids": [
+          "0053400202550",
+          "00863964",
+          "0013800161567",
+          "0078742102047",
+          "0086477005885"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0226499415341",
+        "query": "CHICKEN TACO KIT",
+        "expected_product_id": "0226499415341",
+        "ranked_product_ids": [
+          "0226499415341",
+          "0011110122872",
+          "0011110688729",
+          "0055742578010",
+          "0197870050836"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-5000128755047",
+        "query": "Sea Salt & Black Pepper Croutons",
+        "expected_product_id": "5000128755047",
+        "ranked_product_ids": [],
+        "top1_success": false,
+        "top5_success": false
+      },
+      {
+        "query_id": "off-0085239065334",
+        "query": "chuck light tuna",
+        "expected_product_id": "0085239065334",
+        "ranked_product_ids": [
+          "0085239065334",
+          "0023200000311",
+          "4009233005963",
+          "7617400049169",
+          "9350548515025"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0051497450410",
+        "query": "Bio Whey",
+        "expected_product_id": "0051497450410",
+        "ranked_product_ids": [
+          "0051497450410",
+          "0603907000373",
+          "0705016599226",
+          "0753215592814",
+          "0850083092214"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0041699991217",
+        "query": "C&C pineapple soda",
+        "expected_product_id": "0041699991217",
+        "ranked_product_ids": [
+          "0041699991217",
+          "0723246294773",
+          "3536680312067",
+          "5099874143642"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0049022962620",
+        "query": "Whole Cashews Sea Salt & Pepper",
+        "expected_product_id": "0049022962620",
+        "ranked_product_ids": [
+          "0049022962620",
+          "5000128755047",
+          "0718117881817",
+          "0850044312009",
+          "91161239"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      },
+      {
+        "query_id": "off-0734414000164",
+        "query": "Panqueque y waffles mix",
+        "expected_product_id": "0734414000164",
+        "ranked_product_ids": [
+          "0734414000164",
+          "0011110688729",
+          "0074026022162",
+          "0617950200123",
+          "0688267548871"
+        ],
+        "top1_success": true,
+        "top5_success": true
+      }
+    ]
+  }
+}
