@@ -15,6 +15,14 @@ func featurePrint(_ url: URL) throws -> VNFeaturePrintObservation {
     return result
 }
 
+func recognizedText(_ url: URL) throws -> [String] {
+    let request = VNRecognizeTextRequest()
+    request.recognitionLevel = .accurate
+    request.usesLanguageCorrection = true
+    try VNImageRequestHandler(url: url, options: [:]).perform([request])
+    return (request.results ?? []).compactMap { $0.topCandidates(1).first?.string }
+}
+
 func send(_ value: [String: Any]) {
     if let data = try? JSONSerialization.data(withJSONObject: value, options: [.sortedKeys]),
        let line = String(data: data, encoding: .utf8) {
@@ -53,13 +61,14 @@ do {
                               userInfo: [NSLocalizedDescriptionKey: "Invalid image request"])
             }
             let query = try featurePrint(URL(fileURLWithPath: path))
+            let text = try recognizedText(URL(fileURLWithPath: path))
             var distances: [String: Double] = [:]
             for product in gallery {
                 var distance: Float = 0
                 try query.computeDistance(&distance, to: product.print)
                 distances[product.id] = Double(distance)
             }
-            send(["distances": distances])
+            send(["distances": distances, "recognized_text": text])
         } catch {
             send(["error": error.localizedDescription])
         }

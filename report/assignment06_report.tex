@@ -6,12 +6,12 @@
 \usepackage{microtype}
 \usepackage{graphicx,booktabs,tabularx,array,pdflscape,float,enumitem}
 \usepackage{xcolor,hyperref,fancyhdr,amsmath,amssymb}
-\hypersetup{colorlinks=false,pdfborder={0 0 0},pdfauthor={Vu Hung Anh},pdftitle={Multimodal Search System for E-Commerce -- Assignment 06}}
+\hypersetup{colorlinks=false,pdfborder={0 0 0},pdfauthor={Vu Hung Anh},pdftitle={Multimodal Search System for E-Commerce -- Assignment 06 V02}}
 \definecolor{navy}{HTML}{17365D}
 \definecolor{pale}{HTML}{E7F2FB}
 \pagestyle{fancy}\fancyhf{}
 \lhead{Information System Analysis and Design}
-\rhead{Assignment 06 -- V01}
+\rhead{Assignment 06 -- V02}
 \cfoot{\thepage}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{5pt}
@@ -38,15 +38,15 @@
 \begin{tabular}{rl}
 Student: & Vu Hung Anh \\
 Student ID: & B23DCDT022 \\
-Submission date: & 1 October 2026 \\
-Submission version: & V01
+Submission date: & 7 October 2026 \\
+Submission version: & V02
 \end{tabular}
 \vspace{18mm}
 \begin{minipage}{0.87\linewidth}
-\textbf{Abstract.} This report designs and demonstrates a small e-commerce search prototype for text, voice, and product images. The browser accepts live microphone speech or an editable transcript. The report includes the required UML diagrams, Python implementation, and tests on a teaching catalog and a separate real-photo sample.
+\textbf{Abstract.} This report presents an e-commerce search prototype for text, voice, and product images. V02 adds package-text recognition with Apple Vision OCR to the existing Apple Vision image search. On 80 held-out alternate-view photos, this combined method improves exact-product top-1 results from 20 to 28, compared with the original Vision-only ranking. The report includes the UML design, implementation, demonstration, and evaluation method.
 \end{minipage}
 \vfill
-{\small Submitted with an editable Visual Paradigm project, source code, sample data, and evaluation results.\par}
+{\small Source code, the editable Visual Paradigm project, and dataset are linked on the final page.\par}
 \end{titlepage}
 
 \section{Problem and requirements}
@@ -173,15 +173,15 @@ Query handling & QueryService normalizes input into a common query. \\
 Voice and image & SpeechService passes the transcript; ImageService validates the uploaded photo. \\
 Product search & SearchService retrieves candidates; RankingService sorts them. \\
 Order search & OrderService handles order ID and latest-order requests. \\
-Data & Repositories load JSON; VectorIndex stores Vision feature prints for product photos. \\
+Data & Repositories load JSON; VectorIndex compares Vision features and returns package text. \\
 \bottomrule\end{tabularx}
 \end{table}
 
 \textbf{Text and voice.} QueryService lowercases text, normalizes a small set of category synonyms, and detects common colors, brands, and price limits. SearchService applies the detected filters before ranking. In the browser, the Web Speech API turns microphone speech into editable text. SearchUI then sends that transcript through SpeechService and the same query path. The console example and saved voice checks use supplied transcripts, so they do not measure recognition accuracy.
 
-\textbf{Image search.} ImageService validates the uploaded file. VectorIndex uses Apple's \href{https://developer.apple.com/documentation/vision/vngenerateimagefeatureprintrequest}{Vision feature-print API} to describe each catalog photo and the query photo. Vision measures their visual distance $d$; a smaller distance means a closer match. The application displays the equivalent similarity $S_i=1/(1+d)$, so a larger displayed score is better. The same Vision index is used by the running Python application and the evaluation script. It requires macOS and Swift.
+\textbf{Image search.} ImageService validates the uploaded file. VectorIndex uses Apple's \href{https://developer.apple.com/documentation/vision/vngenerateimagefeatureprintrequest}{Vision feature-print API} to describe each catalog photo and the query photo. Vision measures their visual distance $d$; a smaller distance means a closer match. Apple Vision's text recognizer also reads visible package text from the query. The application converts distance to similarity $S_i=1/(1+d)$ and compares recognized words with the product name and brand. Both services run locally on macOS through Swift.
 
-\textbf{Ranking.} The business score $B$ combines popularity and in-stock status. Text or voice search uses $0.9S_t+0.1B$. Image-only search uses $S_i$, preserving Vision's visual order. When both text and image are supplied, the score is $0.45S_t+0.45S_i+0.1B$. Retrieval selects eligible candidates; RankingService sorts those candidates by score.
+\textbf{Ranking.} The business score $B$ combines popularity and in-stock status. Text or voice search uses $0.9S_t+0.1B$. For image search, $S_o=0.8C+0.2R$, where $C$ is the share of informative product-name words recognized in the photo and $R$ is 1 when a brand word is recognized, or 0 otherwise. V02 uses $0.9S_i+0.1S_o$; this retains visual similarity as the main signal and uses package text to resolve close candidates. Text-image search uses $0.4S_t+0.4S_i+0.1S_o+0.1B$. Retrieval selects eligible candidates; RankingService sorts those candidates by score.
 
 \textbf{External data.} The browser and evaluation use 500 real grocery products and 100 separate alternate-view query images from Open Food Facts. Gallery and query photos are kept as distinct files; a query photo is never used in the gallery index. Every product has a barcode and title; 350 have a brand and 204 have a usable broad category. Source selection, attribution, and license details are in \path{data/openfoodfacts/DATASET.md}.
 
@@ -230,34 +230,32 @@ Text + image & \code{Tomato Mushroom Pasta Sauce} and the photo & Tomato \& Mush
 The browser runs from \code{web\_demo.py} at \code{127.0.0.1:8765}; it accepts a provided dataset photo or an uploaded photo. Its image result is a genuine Apple Vision result on the 500-product gallery. The first result is correct for the shown sauce query, while the full 100-photo evaluation below includes failures.
 
 \nextsection{Evaluation}
-\textbf{What is measured.} Each test asks whether the application's first result is correct. For exact-product image search, the correct answer has the same barcode as the query photo. We also count whether it appears anywhere in the first five results.
+\textbf{Question and data.} Does package text improve exact-product image retrieval? Product records come from the official Open Food Facts \href{https://static.openfoodfacts.org/exports/products.random-modulo-1000.tar.gz}{random-modulo-1000 sample}; photos come from its image store. The test uses 500 gallery products and 100 separate alternate-view query photos. Each gallery photo is the product's front view; the query photo is kept out of the index. A result is correct when its barcode matches the query label. Top-1 and top-5 are reported.
 
-\textbf{Source and test setup.} Product records come from the official Open Food Facts \href{https://static.openfoodfacts.org/exports/products.random-modulo-1000.tar.gz}{random-modulo-1000 sample}; photos come from its image store. A fixed selection provides 500 catalog products and 100 separate query photos. The catalog contains a product's front photo, while its different query photo is kept out of the index. Thus, matching requires recognizing the same product across two views. The selection seed, source hash, and image attribution are supplied with the dataset.
-
-\textbf{Method.} The test calls the submitted Python application's SearchUI, SearchService, and Apple Vision index. The category check asks whether the first result has the same broad Open Food Facts category; 48 of the 100 queries lack a usable label and are excluded from that check. For text, the query is the catalog's own product title, which is easier than a customer's free-form request. Voice checks use known transcripts and assess retrieval after transcription; live microphone recognition is demonstrated but not scored.
+\textbf{Fair comparison.} The evaluation calls the same SearchUI, SearchService, and Apple Vision code as the browser. A fixed random seed separates 20 photos for weight selection and 80 held-out photos for the final comparison. On the 20 calibration photos, it tries package-text weights from 0.0 to 0.8 in steps of 0.1. It selects the weight with the best top-1 result, then top-5; ties prefer the smaller weight. The chosen weight is 0.1. The held-out labels do not guide weight selection. V01 and V02 are compared on the exact same 80 test photos.
 
 \begin{table}[H]\small
-\caption{Results from the submitted application}
-\begin{tabularx}{\linewidth}{@{}p{50mm}p{35mm}Y@{}}\toprule
-Check & Correct first result & Interpretation \\ \midrule
-Teaching text and voice queries & 16/16; plus 3/3 no-match checks & Basic query handling works on the small teaching catalog. \\
-Same product, different real photo & 22/100 (22\%); 26/100 in top five & The exact item is often missed across different package views. \\
-Same broad category & 16/52 (31\%) & Only 52 queries have a usable category label. \\
-Exact product title & 83/100 (83\%) & This tests catalog-title lookup, not natural-language shopping. \\
-Order access & 4/4 & Includes rejecting another customer's order. \\
+\caption{Exact-product image retrieval on the held-out photos}
+\begin{tabularx}{\linewidth}{@{}p{42mm}p{40mm}p{35mm}Y@{}}\toprule
+Method & Top-1 correct & Top-5 correct & Plain-language result \\ \midrule
+V01 Apple Vision features & 20/80 (25\%) & 23/80 (28.8\%) & Visual similarity only. \\
+V02 Vision + package text & 28/80 (35\%) & 32/80 (40\%) & 8 more first-place matches and 9 more top-five matches. \\
+Change & +8 queries (+10 pp) & +9 queries (+11.2 pp) & pp means percentage points; no V01 top-1 match was lost. \\
 \bottomrule\end{tabularx}
 \end{table}
 
-\textbf{Examples and interpretation.} The alternate photo of \emph{Tomato \& Mushroom Pasta Sauce} retrieves its matching front photo first. The \emph{Quick cook medium noodles} query shows the back of the package; its matching front photo is outside the top five. Both image pairs are shown earlier in this report. The teaching check covers text and voice only; all image results come from real photos. Per-query results are saved in \path{demo/openfoodfacts_evaluation.json}.
+The 20 calibration photos yielded 3/20 top-1 and 4/20 top-5 matches at the selected weight. On the held-out set, package text corrected cases such as \emph{White Corn Chips} and \emph{Apple Juice}; eight V01 misses became top-1 matches. This result is encouraging but still leaves 52 of 80 exact products outside first place. The sample is grocery-focused and does not establish performance on other stores or product types. Per-query results, the weight sweep, and the split details are in \path{demo/v02_openfoodfacts_evaluation.json}. The earlier all-100 V01 score is retained in \path{demo/openfoodfacts_evaluation.json} for reference and is not used as the paired comparison.
+
+The supporting functional checks on the teaching catalog remain 16/16 expected text and voice matches, 3/3 handled no-match queries, and 4/4 order-access checks. Supplied voice transcripts test retrieval after transcription; live microphone recognition is demonstrated but its accuracy is not measured.
 
 \nextsection{Discussion and conclusion}
-The prototype meets the required tasks: it defines the customer requirements, models all required use cases and the three layers in Visual Paradigm, illustrates voice search, and implements text, voice-transcript, image, and ranked results in Python. The browser adds live microphone transcription. It also demonstrates text-image fusion, price filtering, and order ownership checks.
+The prototype meets the required tasks: it defines the customer requirements, models all required use cases and the three layers in Visual Paradigm, illustrates voice search, and implements text, voice-transcript, image, and ranked results in Python. V02 adds package OCR to image ranking and improves held-out exact-product retrieval from 20/80 to 28/80 at top-1. The browser adds live microphone transcription and demonstrates text-image fusion, price filtering, and order ownership checks.
 
-The main limitation is exact-product image retrieval: the Apple Vision method finds the correct product first for 22 of 100 alternate-view photos. It also requires macOS and Swift. The teaching catalog is small; the real-photo sample is grocery-focused and much smaller than a real store. Text evaluation uses exact product titles. Microphone recognition depends on browser support, permission, and the browser's recognition service; its accuracy is not measured here. The supplied customer ID is not an authentication mechanism.
+The main limitation is exact-product image retrieval: the V02 method still misses the first result for 52 of 80 held-out photos. OCR can fail on small, angled, or obscured packaging text, and the feature-print model also requires macOS and Swift. The teaching catalog is small; the real-photo sample is grocery-focused and much smaller than a real store. Microphone recognition depends on browser support, permission, and the browser's recognition service; its accuracy is not measured here. The supplied customer ID is not an authentication mechanism.
 
-A practical next step is to test product-specific image representations or package-text recognition on the same held-out photos. The current service boundaries allow that change within the image index without moving search logic into the user interface.
+A practical next step is to evaluate the combined method on a broader, independently sourced product catalog and improve OCR handling for rotated or partially visible labels. The current service boundaries allow that work within the image index without moving search logic into the user interface.
 
-\textbf{Reproducibility.} The GitHub submission contains the report, editable \code{.vpp} project, Python source, browser interface, teaching records, README, thirteen automated tests, and saved evaluation results. The prepared Open Food Facts photos and metadata are provided as a separate ZIP on Google Drive. The README provides a tested \code{gdown} command, checksum, and extraction steps. The UML project can be rebuilt with \path{tools/build_vp.py}; the report uses the supplied Assignment 06 handout as its specification.
+\textbf{Reproducibility.} The GitHub repository contains the editable \code{.vpp} project, Python source, browser interface, teaching records, README, tests, and saved evaluation results. The prepared Open Food Facts photos and metadata are provided as a separate ZIP on Google Drive. The README provides a tested \code{gdown} command, checksum, and extraction steps. The UML project can be rebuilt with \path{tools/build_vp.py}; the report uses the supplied Assignment 06 handout as its specification.
 
 \textbf{Submission links.} GitHub source and report: \href{https://github.com/scalliontor/A6_V01_VuHungAnh}{github.com/scalliontor/A6\_V01\_VuHungAnh}. Prepared dataset: \href{https://drive.google.com/drive/folders/1Ta9vMurnYoJzvNcP23Iflulr-EVWIx58?usp=sharing}{drive.google.com/drive/folders/1Ta9vMurnYoJzvNcP23Iflulr-EVWIx58}.
 

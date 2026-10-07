@@ -2,9 +2,9 @@
 
 **Student:** Vu Hung Anh — B23DCDT022
 
-**Submission date:** 1 October 2026
+**Submission date:** 7 October 2026
 
-**Version:** V01
+**Version:** V02
 
 **Report language:** English
 
@@ -16,7 +16,8 @@
 
 | Item | Location | Description |
 |---|---|---|
-| Report | report/assignment06_report.pdf | Requirements, UML models, implementation, demonstration, and evaluation. |
+| V02 report | report/A6_V02_AnhVH_022.pdf | Final 11-page PDF report. |
+| V01 archive | report/A6_V1_AnhVH_022.pdf | Earlier report version. |
 | Editable Visual Paradigm project | Assignment06_V01_Multimodal_Search.vpp | Use-case, three-layer class diagram with class dependencies, and voice-search sequence diagrams. |
 | Diagram exports | diagrams/ | PNG and SVG files for all three diagrams. |
 | Python prototype | main.py, web_demo.py, presentation/, application/, data/ | Text, voice, image, multimodal search, and order lookup. |
@@ -24,7 +25,7 @@
 | Teaching data | data/products.json, data/orders.json | Twelve example products and three orders for console text, voice, and order checks. No generated product images. |
 | Open-source evaluation data | Google Drive ZIP; extract to data/openfoodfacts/ | 500 real product records, 500 catalog photos, 100 held-out query photos, and attribution notes. |
 | Demonstration output | demo/run.txt, demo/console_capture.png, demo/web_capture.png, demo/voice_capture.png | Console output and screenshots of the running prototype. |
-| Evaluation results | demo/evaluation.json, demo/openfoodfacts_evaluation.json | Teaching-catalog checks and real-photo results from the submitted app. |
+| Evaluation results | demo/evaluation.json, demo/openfoodfacts_evaluation.json, demo/v02_openfoodfacts_evaluation.json | Teaching-catalog checks, the V01 result, and V02 held-out comparison. |
 | Tests | tests/test_search.py | Thirteen tests for search modes, filters, the Vision index, and order access. |
 
 ## Project directory structure
@@ -44,7 +45,7 @@ A6_V01_VuHungAnh/
 │   ├── README.md                    # Which files are demo data and which are real data
 │   └── openfoodfacts/              # Download separately from Google Drive
 ├── diagrams/                     # UML exports (PNG and SVG)
-├── report/                       # Final PDF report
+├── report/                       # V01 and V02 PDF reports
 ├── demo/                         # Run captures and evaluation results
 ├── tests/                         # Automated tests
 └── tools/                         # Data preparation, evaluation, and build scripts
@@ -90,13 +91,13 @@ The application demonstrates:
 
 1. Text search with category, color, brand, and price filters.
 2. Live microphone recognition in the browser, with an editable transcript fallback; both feed the same Python voice-search path.
-3. Image search using local Apple Vision feature prints.
+3. Image search using local Apple Vision feature prints and package-text OCR.
 4. Text-image score fusion.
 5. Product details and order lookup scoped to a customer ID.
 
 The design follows Presentation → Application / Intelligence → Data. The UI calls services; repositories read JSON data. Candidate retrieval and result ranking are separate steps.
 
-Text matches receive a score of 1.0 for a product-name token, 0.55 for a metadata token, and 0 for a miss. For images, VectorIndex starts a local Swift process, extracts a Vision feature print for each gallery photo, and compares the query photo with every product. Vision returns a distance: smaller means closer. The app displays similarity as 1 / (1 + distance), which preserves the same order. Image-only search follows that visual order; text-image search combines it with text and a small popularity/stock score.
+Text matches receive a score of 1.0 for a product-name token, 0.55 for a metadata token, and 0 for a miss. For images, VectorIndex starts a local Swift process, extracts Apple Vision feature prints for the gallery and query, and reads visible package text from the query photo. Vision distance is converted to similarity as 1 / (1 + distance). The OCR score measures product-name word coverage and a small brand match. V02 ranks images with 0.9 × visual similarity + 0.1 × package-text score. Text-image search also combines text relevance and a small popularity/stock score.
 
 ## Evaluation
 
@@ -104,17 +105,16 @@ The checks below ask whether the expected item appears first. The small teaching
 
 Product records come from the official Open Food Facts [random-modulo-1000 metadata sample](https://static.openfoodfacts.org/exports/products.random-modulo-1000.tar.gz); selected product photos come from the Open Food Facts image store. The preparation script keeps records with a usable product name and front photo, then uses a fixed seed to select 500 gallery products and 100 products with a distinct second photo. The gallery indexes each product's front photo; its second photo is held out as the query. The expected match is the same barcode. The source hash and selection details are in `data/openfoodfacts/manifest.json`.
 
-The real-photo evaluation calls the same SearchUI and Vision index that the browser uses. A result is correct when the matching barcode appears first; top-five results are also counted. Category matching checks whether the first result has the same broad Open Food Facts category tag; missing and `undefined` tags are skipped. The title-search query is the product's own catalog name, so it is easier than a free-form shopping request.
+The real-photo V02 evaluation calls the same SearchUI and Vision index that the browser uses. It uses 20 alternate-view photos to choose the OCR weight from 0.0 to 0.8, then compares V01 and V02 on the same 80 held-out photos. Selection prefers top-1, then top-5, then the lower OCR weight. A result is correct when its barcode matches the expected product. The output includes the split, weight sweep, and per-query results.
 
 | Check | Result | In plain language |
 |---|---:|---|
 | Teaching text and voice searches | 16 of 16 expected matches; 3 of 3 expected no-match queries handled correctly | Basic text processing and simulated voice work on the teaching catalog. |
 | Order access | 4 of 4 checks passed | The demo returns a customer's order and rejects an order owned by someone else. |
-| Find the exact same product from another photo | 22 of 100 first; 26 of 100 in the first five | Different package views remain difficult for the Vision method. |
-| Find a product in the same category | 16 of 52 first | Only 52 of the 100 photos had usable broad category labels. |
-| Search by the exact product title | 83 of 100 first | This tests title lookup, not a free-form shopping request. |
+| V01, held-out exact-product photo search | 20 of 80 first; 23 of 80 in the first five | Apple Vision feature prints alone. |
+| V02, same held-out photos | 28 of 80 first; 32 of 80 in the first five | OCR fusion adds 8 first-place and 9 top-five matches. |
 
-The real-photo checks use 500 gallery products and 100 separate alternate-view photos. The 48 photos without a usable category label are excluded from category matching. Detailed per-query results and additional metrics are in the JSON files under `demo/`.
+The real-photo checks use 500 gallery products and 100 separate alternate-view photos; 20 are used only for weight selection and 80 for the paired comparison. Detailed per-query results, weight sweep, and protocol are in `demo/v02_openfoodfacts_evaluation.json`.
 
 ## Dataset and attribution
 
@@ -129,10 +129,12 @@ Product records are covered by ODbL 1.0 and the Database Contents License. Produ
     .venv/bin/python tools/evaluate.py
     .venv/bin/python tools/evaluate_openfoodfacts.py
     python3.12 tools/build_vp.py
-    tectonic report/assignment06_report.tex --outdir report
+    mkdir -p /tmp/a6v2build
+    tectonic report/assignment06_report.tex --outdir /tmp/a6v2build
+    cp /tmp/a6v2build/assignment06_report.pdf report/A6_V02_AnhVH_022.pdf
 
 Visual Paradigm 18.1 is needed only to rebuild the editable project. Tectonic and the Times New Roman and Arial fonts are needed only to rebuild the PDF.
 
 ## Limitations
 
-The teaching catalog and its text labels are small. Live microphone recognition depends on browser support, microphone permission, and the browser's recognition service; the saved voice evaluation uses supplied transcripts. Text normalization uses a short English synonym list. The Open Food Facts sample has no shop prices, stock measurements, or colors; some brands and categories are missing. Apple Vision image search runs locally on macOS and finds the exact product first for only 22% of the alternate-view photos in this sample. Order lookup checks the supplied customer ID but does not provide user authentication.
+The teaching catalog and its text labels are small. Live microphone recognition depends on browser support, microphone permission, and the browser's recognition service; the saved voice evaluation uses supplied transcripts. Text normalization uses a short English synonym list. The Open Food Facts sample has no shop prices, stock measurements, or colors; some brands and categories are missing. V02 still misses 52 of 80 held-out exact products at first place, and Apple Vision image search requires macOS and Swift. Order lookup checks the supplied customer ID but does not provide user authentication.

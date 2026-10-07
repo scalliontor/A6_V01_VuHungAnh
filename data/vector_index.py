@@ -10,6 +10,8 @@ class VectorIndex:
     def __init__(self, repository):
         self.repository = repository
         self._process = None
+        self.last_ocr_text = ""
+        self.last_image_scores = {}
         atexit.register(self.close)
 
     def _backend(self):
@@ -39,9 +41,13 @@ class VectorIndex:
         result = json.loads(response)
         if "error" in result:
             raise RuntimeError(f"Vision could not analyze the image: {result['error']}")
+        self.last_ocr_text = " ".join(result.get("recognized_text", []))
         # Sorting by this similarity is equivalent to sorting by Vision distance.
-        return {product_id: 1.0 / (1.0 + distance)
-                for product_id, distance in result["distances"].items()}
+        self.last_image_scores = {
+            product_id: 1.0 / (1.0 + distance)
+            for product_id, distance in result["distances"].items()
+        }
+        return self.last_image_scores
 
     def close(self):
         process = self._process
